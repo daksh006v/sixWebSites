@@ -1,0 +1,273 @@
+*{
+    margin:0;
+    padding:0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: white;
+}
+body{
+    background-color: black;
+}
+.top1{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    /* width:100%; */
+    padding:3vh 2vw;
+    padding-bottom:0vh;
+    /* position:absolute; */
+    position:sticky;
+    top:0;
+    background-color: black;
+}
+.pepsilogo{
+    height:12vh;
+    width:5vw;
+    background-image: url(https://www.pepsi.com/assets/images/pepsi-logos/logo-0.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+
+}
+.options{
+    height:10vh;
+    width:4vw;
+    background-image: url(https://icon-library.com/images/3-bar-menu-icon/3-bar-menu-icon-28.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.content{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top:4vh;
+    gap:2vh;
+    /* justify-content: center; */
+}
+.second{
+    width:7vw;
+    height:14vh;
+}
+
+.sign{
+    font-size:4em;
+    font-weight: 900;
+}
+.info{
+    font-size:1.2em;
+    width:40vw;
+    text-align: center;
+}
+.logogoogle{
+    background: url(https://static.vecteezy.com/system/resources/thumbnails/054/848/721/small/google-icon-logo-free-png.png);
+    width:4vw;
+    height:7vh;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.google{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+    border-radius: 5vh;
+    width:14vw;
+    /* justify-content: space-around; */
+    gap:1vw;
+    cursor: pointer;
+}
+.textgoogle{
+    font-weight: 800;
+}
+.or{
+    font-weight: 800;
+}
+.pass{
+    width:22vw;
+    height:6vh;
+    text-align: center;
+    font-weight: 800;
+    border-radius: 5vh;
+    font-size:1.4em;
+    outline: none;
+    color:grey;
+    /* margin-top:4vh; */
+    /* margin-right:2vw; */
+}
+.inputs{
+    display: flex;
+    /* border:1px solid white; */
+    justify-content: center;
+    align-items: center;
+    gap:2vh;
+    width:50vw;
+    flex-wrap: wrap;
+}
+.submit{
+    width:14vw;
+    height:5vh;
+     height:8vh;
+    background-color: blue;
+     font-weight: 800;
+    border-radius: 5vh;
+    font-size:1.2em;
+    margin-top:4vh;
+    outline: none;
+}
+
+/* Hide the calendar icon in Chrome, Safari, Edge, and Opera */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+}
+
+/* Optional: make sure nothing shifts visually */
+input[type="date"] {
+  position: relative;
+  z-index: 1;
+  /* background: white; or your preferred color */
+}
+
+strong{
+    text-decoration: underline;
+    cursor: pointer;
+}
+hr{
+    width:20vw;
+}
+.here{
+    font-size: large;
+}
+.not{
+    font-size: large;
+}
+.register{
+    width:14vw;
+    height:8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+    font-weight: 800;
+    border-radius: 5vh;
+    font-size:1.2em;
+    margin-top:4vh;
+    outline: none;
+
+}
+button{
+    cursor: pointer;
+}
+button:hover{
+    background-color: white;
+    color:blue;
+}
+.end2{
+    background-color: blue;
+    /* position:relative;
+    top:40vh; */
+    width:100%;
+    margin-top:4vh;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.one{
+    height:25vh;
+    width:8vw;
+    background-image: url(https://www.pepsi.com/assets/images/pepsi-logos/logo-0.png);
+
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-top:5vh;
+    margin-left:3vw;
+}
+.two{
+    display:flex;
+    gap:3vw;
+    font-weight:800;
+    cursor: pointer;
+}
+.time1{
+    margin-top:1vh;
+}
+.time2{
+    margin-top:1vh;
+}
+.time3{
+    margin-top:1vh;
+}
+.three{
+    display:flex;
+    gap:1vw;
+    margin-right:3vw;
+    cursor: pointer;
+
+}
+.cookie{
+    position:relative;
+    top:-6vh;
+    left:40vw;
+    font-weight:800;
+    text-decoration: underline;
+    cursor: pointer;
+   
+}
+.check{
+    width:30vw;
+    display:flex;
+    gap:2vw;
+    margin-top: 4vh;
+}
+
+.checkbox{
+    width:4vw;
+
+}
+.checktext{
+    font-size:0.8vw;
+}
+
+.home{
+    font-size:1.3vw;
+    font-weight:800;
+}
+.info2{
+    width:20vw;
+    text-align: center;
+    display: flex;
+    gap:0.4vw;
+    /* border:1px solid white; */
+    justify-content: center;
+    text-decoration: none;
+}
+.blue{
+    color:blue;
+}
+.rewards{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+    border-radius: 5vh;
+    width:18vw;
+    justify-content: space-around;
+    gap:1vw;
+    cursor: pointer;
+}
+.logorewards{
+     background: url(https://www.pepsi.com/assets/images/pepsi-tasty-rewards.png);
+    width:3vw;
+    height:6vh;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: white;
+    border-radius: 50vh;
+
+}
+.brands{
+    display:flex;
+    gap:2vw;
+}
+.new{
+    width:30vw;
+    text-align: center;
+}

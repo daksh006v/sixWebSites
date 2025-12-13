@@ -1,0 +1,586 @@
+*{
+    margin:0;
+    padding:0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: white;
+}
+body{
+    background-color: black;
+    /* width:96vw; */
+}
+.top1{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    /* width:100%; */
+    padding:3vh 2vw;
+    padding-bottom:0vh;
+    background-color: black;
+    /* position:absolute; */
+}
+.pepsilogo{
+    height:40px;
+    width:40px;
+    background-image: url(https://www.pepsi.com/assets/images/pepsi-logos/logo-0.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+
+}
+.options{
+    height: 40px;
+    width:40px;
+    background-image: url(https://icon-library.com/images/3-bar-menu-icon/3-bar-menu-icon-28.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.on{
+    background-color: blue;
+    height:24px;
+    width: 46px;
+    border-radius: 20vh;
+    /* position: fixed; */
+    /* border:1px solid white; */
+    margin-left:46px;
+
+
+}
+.off{
+    background-color: white;
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    margin-top:3px;
+    margin-left:22px;
+}
+.top2{
+    display: flex;
+    gap:1.5vh;
+    align-items: center;
+    /* margin-left:82.5vw; */
+    background-color: black;
+    border-bottom-left-radius: 50vw;
+    width:240px;
+    height: 60px;
+    margin-right:2vw;
+    /* font-size:1.2vw; */
+    /* border: 1px solid white; */
+
+
+}
+.rgom{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.top2 div{
+    font-size:16px;
+
+}
+a{
+    text-decoration: none;
+}
+.top{
+    /* position: fixed; */
+    /* border:1px solid white; */
+    /* background-color: black; */
+     position:sticky;
+    top:0;
+
+    z-index:100;
+
+}
+
+.welcome{
+    /* position:relative;
+    top:20vh; */
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    
+
+}
+.zerosugar{
+    height:80vh;
+    width:24vw;
+    margin-right:12vw;
+    background-image: url(https://www.pepsi.com/assets/images/cans/can-2.webp);
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* border:1px solid white; */
+    background-position: center;
+    
+}
+.text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.text1{
+    font-size: 10vh;
+    font-weight: 900;
+}
+.blue{
+    color: blue;
+    font-size: 15vh;
+}
+.margin{
+    margin-bottom:2vh;
+    margin-top:0vh;
+}
+#class{
+    font-size: 3vh;
+    font-weight: 1000;
+    text-decoration: none;
+    /* margin-top:2vh; */
+}
+.droparrow{
+    height:3vh;
+    width:3vw;
+    background-image: url(https://www.kusd.edu/wp-content/uploads/2021/09/Drop-down-arrow-icon-rounded.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-left:10vw;
+    margin-top:1vh;
+}
+
+.part1{
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+    margin-top:5vh;
+    gap:2vh;
+
+}
+.part1left{
+    height:80vh;
+    width: 60vw;
+    /* position: absolute; */
+}
+.part1right{
+    /* position: relative; */
+}
+.pepsispanish{
+    height:30vh;
+    width:30vw;
+    background-image: url(https://www.pepsi.com/prod/s3fs-public/2025-10/Group%2062.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.textad{
+    /* font-size:80px; */
+    font-weight: 600;
+    margin-top:2vw;
+    width:30vw;
+}
+.sign{
+    background-color: blue;
+    height:8vh;
+    font-size:2em;
+    margin-top:3vh;
+    width:25vw;
+    border-radius: 20vh;
+    /* border:1px solid white; */
+    font-weight: 900;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.us{
+    width:30vw;
+    font-style: italic;
+     margin-top:3vh;
+     cursor: pointer;
+
+}
+.sign:hover{
+    cursor: pointer;
+    background-color:white;
+    color:blue;
+}
+.vid1{
+    /* height:90vh; */
+    width:98vw;
+    position:relative;
+    /* bottom:vh; */
+    /* top:184vh; */
+    cursor: default;
+    
+}
+.sign2{
+     background-color: blue;
+    height:8vh;
+    font-size:2em;
+    margin-top:3vh;
+    width:35vw;
+    border-radius: 20vh;
+    text-align: center;
+    /* border:1px solid white; */
+    font-weight: 900;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top:-34vh;
+    left:30vw;
+}
+.vid2{
+    position: relative;
+    top:-14vh;
+    cursor: default;
+    /* border: 1px solid white; */
+
+
+}
+.sign2:hover{
+    cursor: pointer;
+    background-color:white;
+    color:blue;
+    
+}
+.vid3{
+    position:relative;
+    top:-26vh;
+    cursor: default;
+   
+    /* border:1px solid red; */
+}
+.sign3{
+    background-color: blue;
+    height:8vh;
+    font-size:2em;
+    margin-top:3vh;
+    width:20vw;
+    border-radius: 20vh;
+    text-align: center;
+    /* border:1px solid white; */
+    font-weight: 900;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top:-46vh;
+    left:40vw;
+}
+.sign3:hover{
+    cursor: pointer;
+    background-color:white;
+    color:blue;
+}
+.sign1{
+    position: relative;
+    top:-20vh;
+    left:30vw;
+    background-color: blue;
+    /* position:sticky; */
+    height:8vh;
+    /* font-size:2em; */
+    margin-top:3vh;
+    width:35vw;
+    border-radius: 20vh;
+    text-align: center;
+    /* border:1px solid white; */
+    font-weight: 900;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.sign1:hover{
+    cursor: pointer;
+    background-color:white;
+    color:blue;
+}
+.vid4{
+    position:relative;
+    top:-38vh;
+    cursor: default;
+    /* border:1px solid red; */
+}
+.sign4{
+    background-color: blue;
+    height:8vh;
+    font-size:2em;
+    /* margin-top:3vh; */
+    width:25vw;
+    border-radius: 20vh;
+    text-align: center;
+    /* border:1px solid white; */
+    font-weight: 900;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top:-54vh;
+    left:37vw;
+}
+.sign4:hover{
+    cursor: pointer;
+    background-color:white;
+    color:blue;
+}
+.vid5{
+     position:relative;
+    top:-46.4vh;
+    cursor: default;
+    /* border:1px solid red; */
+}
+.sign5{
+    background-color: blue;
+    height:8vh;
+    font-size:2em;
+    /* margin-top:3vh; */
+    width:25vw;
+    border-radius: 20vh;
+    text-align: center;
+    /* border:1px solid white; */
+    font-weight: 900;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top:-60vh;
+    left:37vw;
+}
+.sign5:hover{
+    cursor: pointer;
+    background-color:white;
+    color:blue;
+}
+.end{
+    /* border:5px solid blue; */
+    position:relative;
+    text-align: center;
+    top:-40vh;
+    display:flex;
+    flex-direction:column;
+    /* gap:1vh; */
+}
+.logo{
+    height:25vh;
+    width:8vw;
+    background-image: url(https://www.pepsi.com/assets/images/pepsi-logos/logo-0.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin:auto;
+
+}
+.stay{
+    font-size:3em;
+    position: relative;
+    top:-8vh;
+    font-weight: 700;
+}
+.pulse{
+    font-size:8em;
+    position:relative;
+    top:-10vh;
+    font-weight: 700;
+}
+.pics{
+    height:50vh;
+    width:98vw;
+    display:flex;
+    /* border:1px solid red; */
+    position:relative;
+    top:-40vh;
+    gap:3vw;
+    justify-content: center;
+    align-items: center;
+   
+    
+}
+.pic{
+    /* margin-left:10vw; */
+    width:20vw;
+    height:38vh;
+    /* border:1px solid white; */
+    /* background-size:contain; */
+    /* border-radius:4vh; */
+    
+ 
+}
+.pic1{
+    background: url(https://www.pepsi.com/prod/s3fs-public/2025-05/challenge-sizzle.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.pic2{
+    background: url(https://www.pepsi.com/prod/s3fs-public/2025-05/wc-c-annoucements.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.pic3{
+    background: url(https://www.pepsi.com/prod/s3fs-public/2025-05/fridge-post.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.pic4{
+    background: url(https://www.pepsi.com/prod/s3fs-public/2025-05/pasta-deserves_0.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.pic5{
+    background: url(https://www.pepsi.com/prod/s3fs-public/2025-05/challenge-kickoff.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.end2{
+    background-color: blue;
+    position:relative;
+    top:-40vh;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding:30px;
+    /* min-gap: 14vw; */
+    /* width:94vw; */
+    /* width:90%; */
+}
+/* .top{
+    border:1px solid white;
+} */
+.one{
+    height:25vh;
+    width:8vw;
+    background-image: url(https://www.pepsi.com/assets/images/pepsi-logos/logo-0.png);
+
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-top:5vh;
+    margin-left:3vw;
+    margin-right: 6vw;
+}
+.two{
+    display:flex;
+    gap:3vw;
+    font-weight:800;
+    cursor: pointer;
+    margin-right: 6vw;
+}
+.time1{
+    margin-top:1vh;
+}
+.time2{
+    margin-top:1vh;
+}
+.time3{
+    margin-top:1vh;
+}
+.three{
+    display:flex;
+    gap:16px;
+    margin-right:3vw;
+    cursor: pointer;
+    margin-top: 2vh;
+    border:1px solid white;
+
+}
+.cookie{
+    position:relative;
+    /* bottom:-55vh; */
+    margin-left:84vw;
+    margin-top:-46vh;
+    font-weight:800;
+    text-decoration: underline;
+    cursor: pointer;
+    width:13vw;
+    font-size:1.2vw;
+    /* border: 1px solid white; */
+   
+}
+
+.same{
+    font-size: 2vw;
+}
+.textad{
+    font-size:20px;
+}
+.us{
+    font-size:16px;
+}
+.text1{
+    font-size:8vw;
+}
+.margin{
+    font-size:4vw;
+}
+.text2{
+    font-size:1.5vw;
+}
+.cg{
+      display:flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    /* gap:3vw; */
+    border:1px solid white;
+    justify-content: space-between;
+    /* padding:30px; */
+}
+@media screen and (max-width:1024px){
+    .zerosugar{
+        /* width:80vw; */
+        margin:auto;
+    }
+    .welcome{
+        display:flex;
+        flex-direction: column;
+    }
+
+    .part1{
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+    .part1left{
+        width:100%;
+        background-size: contain;
+        /* background-repeat: repeat; */
+    }
+    .part1right{
+        margin:auto;
+        /* width:80vw; */
+        text-align: center;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        
+    }
+    .pepsispanish{
+        display:none;
+    }
+    .textad{
+       width:30vw;
+       font-size:16px;
+       margin-bottom: 3vh;
+    }
+    .us{
+        font-size:10px;
+        margin-bottom:3vh;
+    }
+    .sign{
+        margin-bottom: 3vh;
+    }
+    .pic{
+        width:20vw;
+        height:60vh;
+        background-size: contain;
+    }
+    .pic2{
+        display:none;
+    }
+    .pics{
+        align-items: center;
+        justify-content: space-around;
+    }
+    .one{
+        display: block;
+    }
+
+
+    
+
+}
