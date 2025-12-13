@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's Talk - Loft Orbital</title>
+    <link rel="stylesheet" href="01.loftorbital.css">
+
+    <style>
+        
+        /* Main container*/
+        .form-page-container {
+            background-color: #f9f9f9;
+            padding: 80px 7.5vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 200px); /* Adjust based on footer height */
+        }
+
+        .contact-form-wrapper {
+            background-color: white;
+            padding: 50px 60px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+            position: relative;
+        }
+
+        .contact-form-wrapper h2 {
+            font-size: 3vw;
+            color: #16273D;
+            text-align: left; /* Align left as in the image */
+            margin-bottom: 40px;
+        }
+
+        .contact-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr; /* Three columns for first few fields */
+            gap: 25px;
+        }
+        
+        .form-field {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-field.full-width {
+            grid-column: 1 / -1; /* Make this field span all columns */
+        }
+        /* Specific placement for Message to span 2 columns then 3 */
+        .form-field.message-field {
+            grid-column: 1 / -1; /* spans all 3 columns */
+        }
+
+
+        .form-field label {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #16273D;
+        }
+        .form-field input,
+        .form-field select,
+        .form-field textarea {
+            font-size: 16px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: Arial, Helvetica, sans-serif;
+            width: 100%; /* Ensure inputs take full width of their grid cell */
+            box-sizing: border-box; /* Include padding in width */
+        }
+        .form-field textarea {
+            min-height: 150px;
+            resize: vertical; /* Allow vertical resizing */
+        }
+
+        .form-checkbox {
+            display: flex;
+            align-items: flex-start; /* Align checkbox and text at the top */
+            grid-column: 1 / -1; /* Span all columns */
+            margin-top: 20px;
+            margin-bottom: 30px;
+            font-size: 0.9em;
+            color: #16273D;
+        }
+
+        .form-checkbox input[type="checkbox"] {
+            margin-top: 3px; /* Align checkbox visually with text */
+            margin-right: 10px;
+            width: auto; /* Override 100% width for checkboxes */
+        }
+
+        .form-checkbox a {
+            color: orangered; /* Highlight data policy link */
+            text-decoration: underline;
+        }
+
+        .form-submit-btn {
+            background-color: orangered;
+            color: white;
+            border: none;
+            width: fit-content;
+            border-radius: 8px;
+            padding: 15px 50px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            grid-column: 1 / -1; /* Span all columns */
+            justify-self: left; /* Align button to the left */
+        }
+
+        /* Responsive for form */
+        @media (max-width: 900px) {
+            .contact-form-wrapper {
+                padding: 40px;
+            }
+            .contact-form-wrapper h2 {
+                font-size: 4.5vw;
+            }
+            .contact-form {
+                grid-template-columns: 1fr 1fr; /* Two columns on medium screens */
+            }
+            .form-field.full-width {
+                grid-column: auto; /* Reset full-width for specific fields */
+            }
+            .form-field.message-field,
+            .form-checkbox,
+            .form-submit-btn {
+                grid-column: 1 / -1; /* These still span all available columns */
+            }
+            .form-submit-btn {
+                justify-self: center; /* Center button on smaller screens */
+            }
+        }
+
+        @media (max-width: 600px) {
+            .contact-form-wrapper {
+                padding: 30px 20px;
+            }
+            .contact-form-wrapper h2 {
+                font-size: 6vw;
+            }
+            .contact-form {
+                grid-template-columns: 1fr; /* Stack fields on mobile */
+            }
+            .form-field.full-width,
+            .form-field.message-field,
+            .form-checkbox,
+            .form-submit-btn {
+                grid-column: 1; /* All items stack in a single column */
+                justify-self: stretch; /* Make button fill width */
+            }
+            .form-submit-btn {
+                width: 100%; /* Full width button */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-page-container">
+        <div class="contact-form-wrapper">
+            <h2>Ready to Discuss Your Mission?</h2>
+            <form action="#" method="POST" class="contact-form">
+                <div class="form-field">
+                    <label for="first-name">First Name *</label>
+                    <input type="text" id="first-name" name="first-name" required>
+                </div>
+                <div class="form-field">
+                    <label for="last-name">Last Name *</label>
+                    <input type="text" id="last-name" name="last-name" required>
+                </div>
+                <div class="form-field">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-field">
+                    <label for="company">Company *</label>
+                    <input type="text" id="company" name="company" required>
+                </div>
+                <div class="form-field">
+                    <label for="country">Country *</label>
+                    <select id="country" name="country" required>
+                        <option value="">Select an option</option>
+                        <option value="USA">United States of America</option>
+                        <option value="France">France</option>
+                        <option value="Germany">Germany</option>
+                        <option value="India">India</option>
+                        <option value="Italy">Italy</option>
+                        <option value="Spain">Spain</option>
+                        </select>
+                </div>
+                <div class="form-field">
+                    <label for="interest">Interest *</label>
+                    <select id="interest" name="interest" required>
+                        <option value="">Select an option</option>
+                        <option value="capabilities">Learn more about Loft's capabilities and offerings</option>
+                        <option value="partnership">Partnerships or collaboration opportunities</option>
+                        <option value="media">Media and press inquiries</option>
+                        <option value="investor">Investor relations</option>
+                        <option value="recruiting">Recruiting</option>
+                        <option value="general">General questions</option>
+                    </select>
+                </div>
+                <div class="form-field message-field">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                
+                <div class="form-checkbox">
+                    <input type="checkbox" id="data-policy" name="data-policy" required>
+                    <label for="data-policy">By sending this form I confirm that I have read and accept the <a href="#">Data Policy</a></label>
+                </div>
+                
+                <button type="submit" class="form-submit-btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

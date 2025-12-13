@@ -1,0 +1,181 @@
+*{
+    margin: 0;
+    padding: 0;
+  
+}
+body{
+   
+      overflow-x: hidden;
+}
+.backgroundimg{
+    
+    margin-top: 2%;
+    
+    
+}
+.nav{
+    /* background-color: aliceblue; */
+    height: 4em;
+    width: 100vw;
+    /* border: 2px solid black; */
+    color: black;
+    display: flex;
+    justify-content: space-evenly;
+    
+
+}
+.Equipment p{
+    color:white;
+}
+
+.nav:hover{
+    color: black;
+    opacity: 0.8;
+}
+.nav-2{
+    display: flex;
+    /* margin: 1em; */
+}
+.Golf-1{
+    margin: 2em;
+}
+.logo{
+  font-family: "Cinzel", serif;
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin-top: 0.5em;
+  font-size: xx-large;
+}
+
+.Contact-Sales button{
+    background-color:#4682F6 ;
+    height: 3vw;
+    width: 10vw;
+    margin-top: 1.5em;
+    border-radius: 30px;
+    border: none;
+    color: aliceblue;
+
+
+}
+.body{
+    
+    margin-left: 4vw;
+    margin-top: 5%;
+}
+.p-1{
+    display: flex;
+    justify-content: center;
+    /* color: white; */
+    width: 5em;
+    font-size:2em;
+    margin-bottom: 0.3em;
+    font-weight: lighter;
+   margin-top: 1vw;
+
+}
+.p-2{
+    /* color: white; */
+    font-size: 3em;
+    font-weight: 500;
+    margin-left: 0.5em;
+    
+    
+}
+.forme{
+    margin-top: 2em;
+    margin-left: 5em;
+   
+    
+}
+.forme a {
+     margin-bottom: 2em;
+}
+.para{
+    margin-bottom: 2em;
+    margin-top: 1em;
+}
+
+.Coaching li {
+     border: 1px solid black;
+     width: 20%;
+     
+     list-style-type:none;
+     margin: 0.8em;
+     margin-left: 5em;
+     width: 15em;
+     height: 3em;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     border-radius: 30px;
+}
+
+.Coaching p{
+    /* margin-left: 5%; */
+
+    font-size: x-large;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+.left-side{
+    /* border: 1px solid black; */
+    width: 25vw;
+    margin-left: 3vh;
+    
+
+}
+
+.Trainer{
+    margin-top: 10vw;
+    display: flex;
+
+}
+
+
+.profile-card {
+  width: 320px;
+  margin-left: 20px;
+  height: 4em;
+ 
+  
+  
+}
+
+
+.profile-card-1 {
+  width: 320px;
+  margin-left: 20px;
+  height: 4em;
+   margin-top: 500px;
+  
+  
+}
+
+.profile-img {
+  width: 100%;
+  height: 26em;
+  /* border-radius: 10px; */
+  object-fit: cover;
+  
+}
+
+.name p{
+  margin-top: 12px;
+  font-size: 1.2em;
+  color: #222;
+  gap: 1em;
+  margin-top: 1em;
+}
+
+.right-side{
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+}
+
+
+
+

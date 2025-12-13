@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technology - Loft Orbital</title>
+    <link rel="stylesheet" href="01.loftorbital.css">
+    <style>
+        /* Specific styles for the Technology page to match the image */
+
+        /* Hero section for Technology page */
+        .technology-hero {
+            background-image: url('https://loftorbital.com/wp-content/uploads/tech-test-2-scaled.jpg'); /* Example placeholder, use a proper image if available */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 7.5vw;
+            text-align: left;
+            position: relative;
+            z-index: 1; /* Ensure text is above any potential background video */
+            min-height: 300px; /* Adjust as needed */
+            display: flex;
+            align-items: center; /* Vertically center content */
+        }
+
+        .technology-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)); /* Gradient overlay */
+            z-index: -1;
+        }
+
+        .technology-hero .hero-content {
+            max-width: 50vw; /* Adjust width to match image */
+        }
+
+        .technology-hero h1 {
+            font-size: 4.5vw; /* Large heading */
+            margin-bottom: 20px;
+            color: white; /* Ensure white text */
+            line-height: 1;
+        }
+
+        .technology-hero p {
+            font-size: 1.5vw; /* Subtitle */
+            margin-bottom: 30px;
+            color: white; /* Ensure white text */
+        }
+
+        .technology-hero .learn-more-button {
+            background-color: orangered; /* Your brand color */
+            color: white;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2vw;
+        }
+
+        /* Override main header for technology page - keep it light */
+        .technology-page-header .first-line {
+            padding-left: 7.5vw;
+            padding-right: 7.5vw;
+            background-color: transparent; /* Make header transparent for hero */
+            position: absolute; /* Position over hero */
+            top: 50px; /* Adjust position */
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            padding-left: 45%;
+        }
+
+        .technology-page-header .first-line h1 {
+            color: white;
+        }
+
+        .technology-page-header .first-line .right-line h4 a,
+        .technology-page-header .first-line .right-line h4 {
+            color: white;
+            text-align: right;
+            text-decoration: none;
+        }
+        .main-center{
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 70px;
+    margin-right: 70px;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    .center2-section{
+        width: 25vw;
+
+    >img{
+        width: 100%;
+        border-radius: 25px;
+    }
+    .bold-line{
+        border: 2px solid #16273D;
+    }
+    h2{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    p{
+        color: rgb(29, 29, 29);
+    }
+    }
+}
+
+        /* End-to-End Platform Section */
+        .platform-section {
+            background-color: #f9f9f9;
+            padding: 80px 7.5vw;
+            text-align: center;
+        }
+
+        .platform-section h2 {
+            font-size: 4vw;
+            color: #16273D;
+            margin-bottom: 50px;
+        }
+
+        .platform-nav {
+            display: flex;
+            justify-content: center;
+            gap: 5vw;
+            margin-bottom: 50px;
+        }
+
+        .platform-nav-item {
+            color: #16273D;
+            font-size: 1.5vw;
+            font-weight: bold;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .platform-nav-item.active {
+            color: orangered;
+        }
+
+        .platform-nav-item.active::after {
+            content: '›';
+            position: absolute;
+            right: -1.5vw;
+            top: 50%;
+            transform: translateY(-50%);
+            color: orangered;
+        }
+
+        .platform-video-container {
+            width: 80vw;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            background-color: #000;
+            padding-bottom: 45%; /* 16:9 aspect ratio */
+            height: 0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .platform-video-container video,
+        .platform-video-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-overlay-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 2.5vw;
+            font-weight: bold;
+            text-align: center;
+            max-width: 70%;
+            z-index: 2;
+        }
+
+        /* Core Technologies Section */
+        .core-technologies {
+            background-color: #16273D; /* Dark blue background */
+            padding: 80px 7.5vw;
+            color: white;
+            text-align: center;
+        }
+
+        .core-technologies h2 {
+            font-size: 4vw;
+            margin-bottom: 60px;
+            color: white;
+        }
+
+        .tech-block {
+            display: flex;
+            align-items: center;
+            margin-bottom: 80px;
+            text-align: left;
+        }
+
+        .tech-block:nth-child(even) {
+            flex-direction: row-reverse; /* Alternate layout */
+        }
+
+        .tech-block .text-content {
+            flex: 1;
+            padding: 0 40px;
+        }
+
+        .tech-block .text-content h3 {
+            font-size: 3vw;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .tech-block .text-content h4 {
+            font-size: 1.5vw;
+            font-weight: normal;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .tech-block .text-content p {
+            font-size: 1.2vw;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .tech-block .image-content {
+            flex: 1;
+            position: relative;
+            background-color: #000; /* Placeholder background for images */
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .tech-block .image-content img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .tech-block .image-content .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .tech-block .image-content .play-button svg {
+            fill: #16273D;
+            width: 30px;
+            height: 30px;
+            margin-left: 5px; /* Adjust for triangle shape */
+        }
+
+
+        /* Responsive adjustments */
+        @media (max-width: 900px) {
+            .technology-hero {
+                padding: 50px 5vw;
+                min-height: 350px;
+            }
+            .technology-hero .hero-content {
+                max-width: 90vw;
+            }
+            .technology-hero h1 {
+                font-size: 8vw;
+            }
+            .technology-hero p {
+                font-size: 2.5vw;
+            }
+            .technology-hero .learn-more-button {
+                font-size: 2.5vw;
+                padding: 10px 20px;
+            }
+
+            .technology-page-header .first-line {
+                top: 20px;
+                flex-direction: column;
+                align-items: flex-start;
+                padding-left: 5vw;
+                padding-right: 5vw;
+            }
+            .technology-page-header .first-line .right-line {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+            }
+            .technology-page-header .first-line .right-line h4 {
+                margin-right: 15px;
+                margin-bottom: 10px;
+                font-size: 3.5vw;
+            }
+
+            .platform-section {
+                padding: 60px 5vw;
+            }
+            .platform-section h2 {
+                font-size: 6vw;
+            }
+            .platform-nav {
+                flex-wrap: wrap;
+                gap: 3vw;
+                margin-bottom: 40px;
+            }
+            .platform-nav-item {
+                font-size: 3.5vw;
+            }
+            .platform-nav-item.active::after {
+                right: -3vw;
+            }
+
+            .video-overlay-text {
+                font-size: 4vw;
+            }
+
+            .core-technologies {
+                padding: 60px 5vw;
+            }
+            .core-technologies h2 {
+                font-size: 6vw;
+            }
+            .tech-block {
+                flex-direction: column;
+                margin-bottom: 60px;
+            }
+            .tech-block:nth-child(even) {
+                flex-direction: column; /* Reset order for mobile */
+            }
+            .tech-block .text-content {
+                padding: 20px 0;
+                text-align: center;
+            }
+            .tech-block .text-content h3 {
+                font-size: 5vw;
+            }
+            .tech-block .text-content h4 {
+                font-size: 3vw;
+            }
+            .tech-block .text-content p {
+                font-size: 3vw;
+            }
+            .tech-block .image-content {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .technology-hero h1 {
+                font-size: 10vw;
+            }
+            .technology-hero p {
+                font-size: 3.5vw;
+            }
+            .technology-hero .learn-more-button {
+                font-size: 3.5vw;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="first-heading">
+        <p>Check out our new Technology page to learn more about Loft's end-to-end space infrastructure platform!</p>
+        <a href="#">Read more</a>
+    </div>
+
+    <header class="technology-page-header">
+        <div class="first-line">
+            <div>
+                <h1 style="font-size: 3.5vw;">loft</h1>
+            </div>
+            <div class="right-line">
+                <h4><a href="#">About</a></h4>
+                <h4 style="color: orangered;" href="./fly-with-us.html">Fly With Us</h4>
+                <h4><a href="#">Technology</a></h4>
+                <h4><a href="#">Newsroom</a></h4>
+                <h4><a href="#">Careers</a></h4>
+            </div>
+        </div>
+    </header>
+
+    <div class="technology-hero">
+        <div class="hero-content">
+            <h1>Technology</h1>
+            <p>Our end-to-end space infrastructure platform delivers the highest reliability and lowest cost to orbit.</p>
+            <a href="#" class="learn-more-button">Learn More</a>
+        </div>
+    </div>
+
+    <div class="main-center">
+        <div class="center2-section">
+            <img src="https://loftorbital.com/wp-content/uploads/virtual-missions.jpg" alt=""><br><br>
+            <hr class="bold-line">
+            <h2>Physical Missions <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 20 20">
+                    <path fill="#16273D" fill-rule="evenodd"
+                        d="M5.22 14.78a.75.75 0 0 0 1.06 0l7.22-7.22v5.69a.75.75 0 0 0 1.5 0v-7.5a.75.75 0 0 0-.75-.75h-7.5a.75.75 0 0 0 0 1.5h5.69l-7.22 7.22a.75.75 0 0 0 0 1.06"
+                        clip-rule="evenodd" />
+                </svg></h2>
+            <hr>
+            <p>Rapidly deploy and operate physical payloads on proven satellite platforms.</p>
+        </div>
+        <div class="center2-section">
+            <img src="https://loftorbital.com/wp-content/uploads/on-demand-missions.jpg" alt=""><br><br>
+            <hr class="bold-line">
+            <h2>Physical Missions <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 20 20">
+                    <path fill="#16273D" fill-rule="evenodd"
+                        d="M5.22 14.78a.75.75 0 0 0 1.06 0l7.22-7.22v5.69a.75.75 0 0 0 1.5 0v-7.5a.75.75 0 0 0-.75-.75h-7.5a.75.75 0 0 0 0 1.5h5.69l-7.22 7.22a.75.75 0 0 0 0 1.06"
+                        clip-rule="evenodd" />
+                </svg></h2>
+            <hr>
+            <p>Rapidly deploy and operate physical payloads on proven satellite platforms.</p>
+        </div>
+        <div class="center2-section">
+            <img src="https://loftorbital.com/wp-content/uploads/on-demand-missions.jpg" alt=""><br><br>
+            <hr class="bold-line">
+            <h2>Physical Missions <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 20 20">
+                    <path fill="#16273D" fill-rule="evenodd"
+                        d="M5.22 14.78a.75.75 0 0 0 1.06 0l7.22-7.22v5.69a.75.75 0 0 0 1.5 0v-7.5a.75.75 0 0 0-.75-.75h-7.5a.75.75 0 0 0 0 1.5h5.69l-7.22 7.22a.75.75 0 0 0 0 1.06"
+                        clip-rule="evenodd" />
+                </svg></h2>
+            <hr>
+            <p>Rapidly deploy and operate physical payloads on proven satellite platforms.</p>
+        </div>
+    </div>
+
+    <div class="footer1">
+        <div>
+            <h1>Fly With Us</h1>
+            <p>Get in touch with our team</p>
+        </div>
+        <div class="talk">
+            <p>Let's Talk!</p>
+        </div>
+    </div>
+
+    <div class="footer2">
+        <div class="footer-left">
+            <h1>loft</h1>
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 256 256"><g fill="none"><rect width="256" height="256" fill="#fff" rx="60"/><rect width="256" height="256" fill="#000" rx="60"/><path fill="#fff" d="M184.715 217.685h29.27a4 4 0 0 0 4-3.999l.015-61.842c0-32.323-6.965-57.168-44.738-57.168c-14.359-.534-27.9 6.868-35.207 19.228a.32.32 0 0 1-.595-.161V101.66a4 4 0 0 0-4-4h-27.777a4 4 0 0 0-4 4v112.02a4 4 0 0 0 4 4h29.268a4 4 0 0 0 4-4v-55.373c0-15.657 2.97-30.82 22.381-30.82c19.135 0 19.383 17.916 19.383 31.834v54.364a4 4 0 0 0 4 4M38 59.628c0 11.864 9.767 21.626 21.632 21.626c11.862-.001 21.623-9.769 21.623-21.631C81.253 47.761 71.491 38 59.628 38C47.762 38 38 47.763 38 59.627m6.959 158.058h29.307a4 4 0 0 0 4-4V101.66a4 4 0 0 0-4-4H44.959a4 4 0 0 0-4 4v112.025a4 4 0 0 0 4 4"/></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 14 14"><g fill="none"><g clip-path="url(#SVGG1Ot4cAD)"><path fill="#000" d="M11.025.656h2.147L8.482 6.03L14 13.344H9.68L6.294 8.909l-3.87 4.435H.275l5.016-5.75L0 .657h4.43L7.486 4.71zm-.755 11.4h1.19L3.78 1.877H2.504z"/></g><defs><clipPath id="SVGG1Ot4cAD"><path fill="#fff" d="M0 0h14v14H0z"/></clipPath></defs></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8A4 4 0 0 1 16 11.37m1.5-4.87h.01"/></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" fill-rule="evenodd"><path d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"/><path fill="#000" d="M12 4c.855 0 1.732.022 2.582.058l1.004.048l.961.057l.9.061l.822.064a3.8 3.8 0 0 1 3.494 3.423l.04.425l.075.91c.07.943.122 1.971.122 2.954s-.052 2.011-.122 2.954l-.075.91l-.04.425a3.8 3.8 0 0 1-3.495 3.423l-.82.063l-.9.062l-.962.057l-1.004.048A62 62 0 0 1 12 20a62 62 0 0 1-2.582-.058l-1.004-.048l-.961-.057l-.9-.062l-.822-.063a3.8 3.8 0 0 1-3.494-3.423l-.04-.425l-.075-.91A41 41 0 0 1 2 12c0-.983.052-2.011.122-2.954l.075-.91l.04-.425A3.8 3.8 0 0 1 5.73 4.288l.821-.064l.9-.061l.962-.057l1.004-.048A62 62 0 0 1 12 4m-2 5.575v4.85c0 .462.5.75.9.52l4.2-2.425a.6.6 0 0 0 0-1.04l-4.2-2.424a.6.6 0 0 0-.9.52Z"/></g></svg>
+
+            </div>
+        </div>
+        <div>
+            <div>Fly with us</div>
+            <div>Physical Missions</div>
+            <div>Virtual Missions</div>
+            <div>On Demand Missions</div>
+        </div>
+        <div>
+            <div>Loft</div>
+            <div>About</div>
+            <div>Fly With Us</div>
+            <div>Technology</div>
+            <div>Newsroom</div>
+            <div>Careers</div>
+        </div>
+        <div>
+            <div>PRESS</div>
+            <div>press@loftorbital.com</div>
+            <div>CUSTOMERS</div>
+            <div>sales@loftorbital.com</div>
+            <div>GENERAL</div>
+            <div>Contact Us</div>
+        </div>
+    </div>
+    <hr class="lastline">
+
+    <div class="last">
+    <p class="lastline">
+        © 2025 Loft Orbital, Inc. All Rights Reserved.
+    </p>
+    <p class="lastline">
+        DATA POLICY
+    </p>
+    </div>
+
+
+</body>
+
+</html>

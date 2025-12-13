@@ -1,0 +1,287 @@
+*{
+    margin: 0;
+    padding: 0;
+  
+}
+body{
+   
+      overflow-x: hidden;
+}
+.backgroundimg{
+     background-image:url(https://formelife.com/cdn/shop/files/bg-img.jpg?v=1672998157) ;
+    background-size:cover;
+    background-repeat: no-repeat;
+    height: 60vw;
+}
+.nav{
+    background-color: aliceblue;
+    height: 4em;
+    width: 100vw;
+    border: 2px solid black;
+    color: black;
+    display: flex;
+    justify-content: space-evenly;
+
+}
+.Equipment p{
+    color:white;
+}
+
+.nav:hover{
+    color: black;
+    opacity: 0.8;
+}
+.nav-2{
+    display: flex;
+    /* margin: 1em; */
+}
+.Golf-1{
+    margin: 2em;
+}
+.logo{
+  font-family: "Cinzel", serif;
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin-top: 0.5em;
+  font-size: xx-large;
+}
+
+.Contact-Sales button{
+    background-color:#4682F6 ;
+    height: 3vw;
+    width: 10vw;
+    margin-top: 1.5em;
+    border-radius: 30px;
+    border: none;
+    color: aliceblue;
+
+
+}
+.body{
+    
+    margin-left: 4vw;
+}
+.p-1{
+    display: flex;
+    justify-content: center;
+    color: white;
+    width: 5em;
+    font-size:6em;
+    margin-bottom: 0.3em;
+    font-weight: bold;
+   margin-top: 1vw;
+
+}
+.p-2{
+    color: white;
+    font-size: 4em;
+    font-weight: 900;
+    
+    
+}
+.forme{
+    margin-top: 2em;
+    margin-left: 5em;
+   
+    
+}
+.forme a {
+     margin-bottom: 2em;
+}
+.para{
+    margin-bottom: 2em;
+    margin-top: 1em;
+}
+
+
+/*   main Body */
+.Heading-1{
+    display: flex;
+    margin-left: 2em;
+    margin-top: 2em;
+    font-size: 3em;
+}
+
+.Forme{
+    font-size: xx-large;
+    margin-left: 3em;
+    margin-top: 2em;
+}
+ .p-4{
+    margin-bottom: 0.5em;
+}
+
+.card{
+    display: flex;
+}
+.p-5{
+    font-weight: 500;
+    font-size: x-large;
+    width: 25em;
+    margin-top: 1em;
+}
+
+/* Forme studio */
+
+.FORME-STUDIO{
+    display: flex;
+    /* border: 2px solid black; */
+    justify-content: space-evenly;
+   
+}
+
+.FORME-STUDIO-1{
+     display: flex;
+    /* border: 2px solid black; */
+    justify-content: space-evenly;
+     flex-direction: row-reverse;
+    
+    
+}
+.img-1 img {
+    width: 40vw;
+    height:49vw ;
+    margin-top: 12em;
+    
+    border-radius: 20px;
+}
+
+
+.right img {
+    height: 1vw;
+   
+    margin-top: 0.2em;
+}
+
+.left img {
+    height: 1vw;
+    
+    margin-top: 0.2em;
+}
+.p-7{
+     
+     font-size: xx-large;
+     font-weight: lighter;
+     margin-left: 2.7em;
+     margin-bottom: 0.6em;
+}
+.side-1{
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid black; */
+    margin-top: 12em;
+
+}
+.p-8{
+     font-size: 3.1em;
+     margin-left: 1.8em;
+     /* border: 1px solid black;s */
+     width: 13em;
+}
+.right{
+    margin-top: 2em;
+    width:19em ;
+    
+    margin-left: 1em;
+
+}
+
+.left{
+    margin-top: 2em;
+    width:19em ;
+    
+    margin-left: 1em;
+}
+.right p{
+    font-size: larger;
+
+}
+
+.line-1{
+    display: flex;
+    gap: 10px;
+}
+.side-content{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.line-1 p{
+    font-size: x-large;
+    
+}
+.line-1{
+    margin: 2em;
+}
+
+.btn-1{
+    height: 4vw;
+    width: 10vw;
+    margin-left: 2.4em;
+    border:1px solid black ;
+    background-color: white;
+    border-radius: 30px;
+}
+.btn-1:hover{
+    background-color: #000000;
+    color: white;
+}
+
+
+/* Footer */
+
+.footer {
+  background-color: #000;
+  color: white;
+  padding: 60px 80px 30px;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 15em;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-bottom: 1px solid #222;
+  padding-bottom: 40px;
+}
+
+.footer-column {
+  min-width: 150px;
+  margin: 10px 30px;
+}
+
+.footer-column h3 {
+  font-size: 16px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.footer-column p {
+  color: #ccc;
+  font-size: 14px;
+  margin: 6px 0;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.footer-column p:hover {
+  color: white;
+}
+
+.footer-column a {
+  text-decoration: none;
+  color: #ccc;
+}
+
+.footer-column a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  text-align: left;
+  margin-top: 30px;
+  font-size: 13px;
+  color: #999;
+}
+
