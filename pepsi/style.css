@@ -104,7 +104,7 @@ a{
     height:80vh;
     width:24vw;
     margin-right:12vw;
-    background-image: url(https://www.pepsi.com/assets/images/cans/can-2.webp);
+    background-image: url(https://www.pepsi.com/static/media/PepsiTreats_InHand@2x.537bf678022a1567b071.png);
     background-repeat: no-repeat;
     background-size: contain;
     /* border:1px solid white; */
@@ -475,7 +475,7 @@ a{
     margin-right:3vw;
     cursor: pointer;
     margin-top: 2vh;
-    border:1px solid white;
+    /* border:1px solid white; */
 
 }
 .cookie{
@@ -516,7 +516,7 @@ a{
     align-items: center;
     flex-wrap: wrap;
     /* gap:3vw; */
-    border:1px solid white;
+    /* border:1px solid white; */
     justify-content: space-between;
     /* padding:30px; */
 }
