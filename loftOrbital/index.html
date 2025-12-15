@@ -16,20 +16,20 @@
     <div class="heading">
         <video class="background-video" autoplay muted loop
             src="https://loftorbital.com/wp-content/uploads/2024/07/clouds-home-mp4.mp4"></video>
-        <div class="first-line above">
+        <div class="first-line above hero-nav">
             <div>
                 <h1>loft</h1>
             </div>
             <div class="right-line">
                 <h4><a href="#">About</a></h4>
-                <h4 class="main"><a href="./02.flywithus.html">Fly With Us</a></h4>
+                <h4 class="main"><a href="02.flywithus.html">Fly With Us</a></h4>
                 <h4><a href="#">Technology</a></h4>
                 <h4><a href="#">Newsroom</a></h4>
                 <h4><a href="#">Careers</a></h4>
             </div>
 
         </div>
-        <h1 class="above">Space Made Simple</h1>
+        <h1 class="above hero-title">Space Made Simple</h1>
     </div>
 
     <div class="center">
@@ -84,21 +84,24 @@
         </div>
     </div>
 
-    <div class="center3">
-        <h1>Our Customers</h1>
-        <div class="floating">
-            <img src="https://loftorbital.com/wp-content/uploads/2024/06/wyvern-1.svg" alt="">
-            <img src="https://loftorbital.com/wp-content/uploads/2024/06/sda.svg" alt="">
-            <img src="https://loftorbital.com/wp-content/uploads/2024/06/eutelsat-1.svg" alt="">
-            <img src="https://loftorbital.com/wp-content/uploads/2024/06/agenium-space.svg" alt="">
-            <img src="https://loftorbital.com/wp-content/uploads/2024/06/csa-asc.svg" alt="">
-            <img src="https://loftorbital.com/wp-content/uploads/2024/06/darpa.svg" alt="">
-            <img src="https://loftorbital.com/wp-content/uploads/2024/06/honeywell.svg" alt="">
-            <img src="https://loftorbital.com/wp-content/uploads/2024/06/microsoft.svg" alt="">
-            <img src="https://loftorbital.com/wp-content/uploads/2024/06/nasa.svg" alt="">
-            <img src="https://loftorbital.com/wp-content/uploads/2024/06/viasat-1.svg" alt="">
+   <div class="center3 reveal">
+    <h1>Our Customers</h1>
+
+    <div class="logo-track-wrapper">
+        <div class="logo-track">
+            <img src="https://loftorbital.com/wp-content/uploads/2024/06/wyvern-1.svg" alt="Wyvern">
+            <img src="https://loftorbital.com/wp-content/uploads/2024/06/sda.svg" alt="SDA">
+            <img src="https://loftorbital.com/wp-content/uploads/2024/06/eutelsat-1.svg" alt="Eutelsat">
+            <img src="https://loftorbital.com/wp-content/uploads/2024/06/agenium-space.svg" alt="Agenium">
+            <img src="https://loftorbital.com/wp-content/uploads/2024/06/csa-asc.svg" alt="CSA">
+            <img src="https://loftorbital.com/wp-content/uploads/2024/06/darpa.svg" alt="DARPA">
+            <img src="https://loftorbital.com/wp-content/uploads/2024/06/honeywell.svg" alt="Honeywell">
+            <img src="https://loftorbital.com/wp-content/uploads/2024/06/microsoft.svg" alt="Microsoft">
+            <img src="https://loftorbital.com/wp-content/uploads/2024/06/nasa.svg" alt="NASA">
+            <img src="https://loftorbital.com/wp-content/uploads/2024/06/viasat-1.svg" alt="Viasat">
         </div>
     </div>
+</div>
 
     <div class="news">
         <h1>Latest News</h1>
@@ -127,7 +130,7 @@
             <h1>Fly With Us</h1>
             <p>Get in touch with our team</p>
         </div>
-        <a href="../loftOrbital/03.letstalk.html" style="text-decoration: none;">
+     <a href="02.flywithus.html">
         <div class="talk">
             <p>Let's Talk!</p>
         </div>
@@ -178,6 +181,26 @@
     </p>
     </div>
     
+<script>
+    const reveals = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        },
+        { threshold: 0.2 }
+    );
+
+    reveals.forEach(section => observer.observe(section));
+
+      window.addEventListener('load', () => {
+        document.body.classList.add('hero-animate');
+    });
+</script>
 
 </body>
 

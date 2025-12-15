@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dYdX: DeFi's Pro Trading Platform</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Inter", sans-serif;
+    }
+    body {
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 80px;
+      background: transparent;
+    }
+    .logo img {
+      height: 80px;
+    }
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+    .navbar a {
+      color: #cfcfff;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.3s;
+    }
+    .navbar a:hover {
+      color: #a583ff;
+    }
+    .btn {
+      background-color: #6c4cff;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background-color: #4e36d2;
+    }
+    .hero {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      height: 100vh;
+      padding: 0 20px;
+      overflow: hidden;
+    }
+    .hero-content {
+      z-index: 2;
+      max-width: 800px;
+    }
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 25px;
+      background: linear-gradient(180deg, #fff 0%, #dcdcdc 100%);
+      -webkit-background-clip: text;
+    }
+    .hero p {
+      color: #bcbcbc;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 45px;
+    }
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    .btn-primary {
+      background: linear-gradient(90deg, #7a5cff 0%, #5b4bff 100%);
+      color: #fff;
+      padding: 14px 36px;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px rgba(124, 92, 255, 0.3);
+    }
+    .btn-primary:hover {
+      box-shadow: 0 0 25px rgba(124, 92, 255, 0.6);
+    }
+    .btn-secondary {
+      background-color: #1e1e1e;
+      color: #fff;
+      padding: 14px 36px;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: 1px solid #333;
+    }
+    .btn-secondary:hover {
+      background-color: #333;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      width: 100%;
+      height: 450px;
+      background-image: url("https://cdn.prod.website-files.com/649ca755d082f1dfc4ed62a4/688779ba9980fb0717caa280_header_gradient.png");
+      background-size: cover;
+      background-position: center;
+
+    }
+    .container {
+      max-width: 1152px;
+      margin: 0 auto;
+      padding: 4rem 1rem;
+    }
+    .eyebrow {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #9CA3AF;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .heading-xl {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-top: 0.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .feature-dot{
+      color: black;
+      background-color: black;
+    }
+    @media (min-width: 768px) {
+      .heading-xl {
+        font-size: 3rem;
+      }
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+    @media (min-width: 768px) {
+      .stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 3rem;
+      }
+    }
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #C084FC;
+    }
+    .stat-label {
+      font-size: 1rem;
+      color: #D1D5DB;
+      margin-top: 0.5rem;
+    }
+
+    .edge-section {
+      margin-top: 5rem;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    @media (min-width: 768px) {
+      .content-grid {
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+        gap: 4rem;
+      }
+    }
+
+    .description {
+      font-size: 1.125rem;
+      color: #D1D5DB;
+      line-height: 1.75;
+    }
+
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+    }
+
+    .feature-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+      color: #C084FC;
+      margin-right: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .feature-label {
+      font-size: 1.125rem;
+      color: #ffffff;
+    }
+
+    .content-right {
+      display: flex;
+      justify-content: center;
+    }
+
+    .app-image {
+      border-radius: 1.5rem;
+      box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.4);
+      max-width: 24rem;
+      width: 100%;
+    }
+
+    .page-footer {
+      text-align: center;
+      margin-top: 5rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: #7C3AED;
+      color: #fff;
+      font-size: 1.125rem;
+      font-weight: 600;
+      padding: 0.75rem 2.5rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      transition: background-color 0.2s;
+    }
+
+    .cta-button:hover {
+      background-color: #6D28D9;
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px 30px;
+      }
+
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+    }
+    .box{
+      height: 94px;
+      width: 100%;
+      text-align: center;
+      font-size: 1.5em;
+      background-image: linear-gradient(114deg, #212124 48%, #6966ff 83%, #a09ff9);
+    }
+    #h{
+      color: #6c4cff;
+    }
+    #a{
+    position: relative;
+    left: 500px;
+    bottom: 60px;
+    height: 30px;
+    width: 100px;
+    border-radius: 6px;
+    background-color: rgb(128, 120, 120);
+    color: white;
+    border: NONE;
+    }
+     .comparison-section {
+      background-color: #0a0a0a;
+      padding: 5rem 1rem;
+    }
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-radius: 0.75rem;
+      overflow: hidden;
+      border: 1px solid #27272a;
+      margin-top: 3rem;
+    }
+     .grid-cell {
+      padding: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid #27272a;
+      border-right: 1px solid #27272a;
+    }
+    .bg-neutral-900 { background-color: #171717; }
+    .bg-neutral-800 { background-color: #262626; border-color: #404040; }
+    .grid-cell:nth-child(4n) { border-right: none; }
+    .grid-cell:nth-last-child(-n+4) { border-bottom: none; }
+    .cell-label { font-weight: 500; color: #d4d4d4; }
+    .text-green { color: #4ade80; font-weight: 600; }
+
+    .cta-button {
+      display: inline-block;
+      background-color: #7C3AED;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.75rem 2rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      transition: 0.2s;
+      text-align: center;
+    }
+    .cta-button:hover { background-color: #6D28D9; }
+    .box {
+      height: 94px;
+      width: 100%;
+      text-align: center;
+      font-size: 1.5em;
+      background-image: linear-gradient(114deg, #212124 48%, #6966ff 83%, #a09ff9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .main-content img{
+      height: 510px;
+      margin-top: 50px;
+      margin-left: 230px;
+    }
+    .subtitle{
+      margin-top: 50px;
+      font-size: 20px;
+      padding-left: 230px;
+    }
+    .title{
+      margin-top: 20px;
+      font-size: 45px;
+      padding-left: 230px;
+    }
+    .features-list {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      gap: 2rem;
+      max-width: 400px;
+      padding: 3rem 1rem;
+      position: relative;
+      left: 920px;
+      bottom: 500px;
+    }     
+    .feature-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  
+}
+.feature-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+.feature-description {
+  font-size: 0.95rem;
+  color: #a0a0a0;
+  line-height: 1.6;
+}
+.divider {
+  height: 1px;
+  background: linear-gradient(to right, #333, transparent);
+  width: 100%;
+}
+.footer-cta{
+  position: relative;
+  left: 725px;
+  bottom: 450px;
+}
+.faq-link{
+  position: relative;
+  top: 20px;
+  right: 30px;
+}
+@media (max-width : 780px) {
+   .main-content img{
+      height: 410px;
+      margin-top: 50px;
+      margin-left: 40px;
+    }
+    .subtitle{
+      margin-top: 50px;
+      font-size: 20px;
+      padding-left: 40px;
+    }
+    .title{
+      margin-top: 20px;
+      font-size: 45px;
+      padding-left: 40px;
+    }
+    .features-list {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      gap: 2rem;
+      max-width: 400px;
+      padding: 3rem 1rem;
+      position: relative;
+      left: 40px;
+      bottom:0px;
+      flex-wrap: wrap;
+    }     
+    .feature-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  
+}
+.feature-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+.feature-description {
+  font-size: 0.95rem;
+  color: #a0a0a0;
+  line-height: 1.6;
+}
+.divider {
+  height: 1px;
+  background: linear-gradient(to right, #333, transparent);
+  width: 100%;
+}
+.footer-cta{
+  position: relative;
+  left: 180px;
+  bottom: 0px;
+}
+.faq-link{
+  position: relative;
+  top: 20px;
+  right: 60px;
+}
+}
+    footer {
+      width: 100%;
+      background-color: #000000;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      border-bottom: 1px solid #333;
+      padding-bottom: 40px;
+    }
+
+    .footer-logo h2 {
+      color: white;
+      font-size: 2rem;
+      letter-spacing: 1px;
+    }
+
+    .footer-section h3 {
+      color: white;
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-section ul li a {
+      color: #b3b3b3;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: 0.2s;
+    }
+
+    .footer-section ul li a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      padding-top: 40px;
+      font-size: 0.8rem;
+      color: #a1a1a1;
+      line-height: 1.6;
+    }
+
+    .footer-bottom a {
+      color: #58a6ff;
+      text-decoration: none;
+    }
+
+    .footer-bottom a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-social {
+      margin: 20px 0;
+    }
+
+    .footer-social i {
+      margin-right: 15px;
+      font-size: 1.2rem;
+      color: #ccc;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .footer-social i:hover {
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      footer {
+        padding: 40px 5%;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .footer-top {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">
+      <img src="https://dydx.exchange/og-image.png" alt="dYdX Logo" />
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">VIP</a></li>
+        <li><a href="#">Fees</a></li>
+        <li><a href="#">API</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">App Download</a></li>
+      </ul>
+    </nav>
+    <a href="getstarted.html" class="btn">Get Started</a>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>DeFi's Pro Trading<br>Platform</h1>
+      <p>dYdX reimagines what DeFi and perpetual trading can be. Combining the freedom of decentralization with deep liquidity, advanced order types, a high-performance API, and instant market listings, dYdX empowers you to trade boldly and confidently.</p>
+      <div class="buttons">
+        <a href="getstarted.html" class="btn-primary">View Markets</a>
+        <a href="reword.html" class="btn-secondary">View Rewards</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <section class="trusted-section">
+      <p class="eyebrow">Why dYdX?</p>
+      <h1 class="heading-xl">Trusted at Scale</h1>
+      <div class="stats-grid">
+        <div><p class="stat-number">$1.5T</p><p class="stat-label">Lifetime Volume</p></div>
+        <div><p class="stat-number">$200M</p><p class="stat-label">Open Interest</p></div>
+        <div><p class="stat-number">220+</p><p class="stat-label">Markets</p></div>
+        <div><p class="stat-number">$12M</p><p class="stat-label">MegaVault TVL</p></div>
+      </div>
+    </section>
+
+    <section class="edge-section">
+      <p class="eyebrow">Products</p>
+      <h1 class="heading-xl">Built for the Edge</h1>
+      <div class="content-grid">
+        <div class="content-left">
+          <p class="description">
+            200+ markets. Pro-grade tools. Scalable infrastructure for teams. Powered by incentives that reward trading, referrals, and long-term growth.
+          </p>
+          <ul class="feature-list">
+            <li class="feature-item"><img src="https://cdn.prod.website-files.com/649ca755d082f1dfc4ed62a4/6875282d87c8d38e4f63cd90_630e888dc7b7910368c3a6680019c504_Frame.svg" alt=""><span class="feature-label"><span class="feature-dot">..</span>Seamless Trading</span></li>
+            <li class="feature-item"><img src="https://cdn.prod.website-files.com/649ca755d082f1dfc4ed62a4/6875282d87c8d38e4f63cd92_b7306e9535cc84169660ef5e454fee2b_Frame.svg" alt=""><span class="feature-label"><span class="feature-dot">..</span>Trading for Teams</span></li>
+            <li class="feature-item"><img src="https://cdn.prod.website-files.com/649ca755d082f1dfc4ed62a4/6875282d87c8d38e4f63cd94_d4c6046261c8b18910093b77264dfe68_Frame.svg" alt=""><span class="feature-label"><span class="feature-dot">..</span>Instant Market Listings</span></li>
+            <li class="feature-item"><img src="https://cdn.prod.website-files.com/649ca755d082f1dfc4ed62a4/6875282d87c8d38e4f63cd96_f4934c621951b8c0f49543540b8c9ca4_Frame.svg" alt=""><span class="feature-label"><span class="feature-dot">..</span>Affiliates & Rewards Programs</span></li>
+          </ul>
+        </div>
+        <div class="content-right">
+          <img src="https://cdn.prod.website-files.com/649ca755d082f1dfc4ed62a4/6875282d87c8d38e4f63cd98_eec182089826d9771a13fca52c0126be_Group%201188.avif" alt="App UI" class="app-image">
+        </div>
+      </div>
+    </section>
+
+    <footer class="page-footer">
+      <a href="getstarted.html" class="cta-button">Get Started</a>
+    </footer>
+  </div>
+<div class="box">
+  <h2><span id="h">Deposits of $100+</span>Are Now Instant, Seamless <br>and Free</h2>
+  <button id="a">Learn More</button>
+</div>
+  <section class="comparison-section">
+    <div class="container">
+      <div class="header-text">
+        <p>Compare the Difference</p>
+        <h1>Why Traders Switch to dYdX</h1>
+      </div>
+
+      <div class="comparison-grid">
+        <div class="grid-cell bg-neutral-900"></div>
+        <div class="grid-cell bg-neutral-800"><strong>dYdX</strong></div>
+        <div class="grid-cell bg-neutral-900">CEX</div>
+        <div class="grid-cell bg-neutral-900">DEX</div>
+
+        <div class="grid-cell bg-neutral-900 cell-label">Trading Fees</div>
+        <div class="grid-cell bg-neutral-800"><span class="text-green">100% Rebate</span></div>
+        <div class="grid-cell bg-neutral-900">10–20 bps</div>
+        <div class="grid-cell bg-neutral-900">5–30 bps</div>
+
+        <div class="grid-cell bg-neutral-900 cell-label">Trading Rewards</div>
+        <div class="grid-cell bg-neutral-800"><span class="text-green">$1M Monthly</span></div>
+        <div class="grid-cell bg-neutral-900">None</div>
+        <div class="grid-cell bg-neutral-900">None</div>
+
+        <div class="grid-cell bg-neutral-900 cell-label">Depositing Fees</div>
+        <div class="grid-cell bg-neutral-800"><span class="text-green">Free $100+</span></div>
+        <div class="grid-cell bg-neutral-900">$0–30</div>
+        <div class="grid-cell bg-neutral-900">~$3–20 (gas)</div>
+
+        <div class="grid-cell bg-neutral-900 cell-label">Custody</div>
+        <div class="grid-cell bg-neutral-800"><span class="text-green">Self-Custody</span></div>
+        <div class="grid-cell bg-neutral-900">Custodial</div>
+        <div class="grid-cell bg-neutral-900">Self-Custody</div>
+
+        <div class="grid-cell bg-neutral-900 cell-label">Mobile Apps</div>
+        <div class="grid-cell bg-neutral-800"><span class="text-green">iOS & Android</span></div>
+        <div class="grid-cell bg-neutral-900">Yes</div>
+        <div class="grid-cell bg-neutral-900">No</div>
+
+        <div class="grid-cell bg-neutral-900"></div>
+        <div class="grid-cell bg-neutral-800">
+          <a href="getstarted.html" class="cta-button">Get Started</a>
+        </div>
+        <div class="grid-cell bg-neutral-900"></div>
+        <div class="grid-cell bg-neutral-900"></div>
+      </div>
+    </div>
+  </section>
+
+   <header class="page-header">
+        <p class="subtitle">Step-by-Step</p>
+        <h1 class="title">How to Start</h1>
+    </header>
+
+    <div class="main-content">
+
+        <img src="https://cdn.prod.website-files.com/649ca755d082f1dfc4ed62a4/6866509a6b396192b0220799_Desktop%2001.avif" alt="">
+
+<div class="features-list">
+  <div class="feature-item">
+    <h3 class="feature-title">Connected in Seconds</h3>
+    <p class="feature-description">
+      MetaMask, Rabby, Phantom and dozens of other Wallets can be connected in seconds.
+    </p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="feature-item">
+    <h3 class="feature-title">Just $10 to Start</h3>
+    <p class="feature-description">
+      Instant deposits available from just $10, with support for six chains: Ethereum, Base,
+      Optimism, Avalanche, Polygon, and Arbitrum.
+    </p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="feature-item">
+    <h3 class="feature-title">Explore 200+ Markets</h3>
+    <p class="feature-description">
+      200+ markets accessible with up to 50x leverage, via desktop, mobile apps, and API.
+    </p>
+  </div>
+</div>
+
+    </div>
+
+    <footer class="footer-cta">
+        <button href="getstarted.html" class="cta-button">Get Started</button>
+        <p class="faq-link">
+            Having trouble? Check the <a href="#">FAQ</a>
+        </p>
+    </footer>
+
+      <footer>
+    <div class="footer-top">
+      <div class="footer-logo">
+        <h2>dYdX</h2>
+      </div>
+
+      <div class="footer-section">
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Academy</a></li>
+          <li><a href="#">Markets</a></li>
+          <li><a href="#">Brand</a></li>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Ecosystem</h3>
+        <ul>
+          <li><a href="#">dYdX Labs</a></li>
+          <li><a href="#">dYdX Foundation</a></li>
+          <li><a href="#">dYdX Operations subDAO</a></li>
+          <li><a href="#">dYdX Grants subDAO</a></li>
+          <li><a href="#">API</a></li>
+          <li><a href="#">New iOS App</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Market Pages</h3>
+        <ul>
+          <li><a href="#">APX-USD</a></li>
+          <li><a href="#">BERA-USD</a></li>
+          <li><a href="#">NIL-USD</a></li>
+          <li><a href="#">NC-USD</a></li>
+          <li><a href="#">GAS-USD</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Learn More</h3>
+        <ul>
+          <li><a href="#">How To Purchase DYDX</a></li>
+          <li><a href="#">How To Start Trading</a></li>
+          <li><a href="#">Trading Competition</a></li>
+          <li><a href="#">2024 Annual Report</a></li>
+          <li><a href="#">DYDX Buyback</a></li>
+          <li><a href="#">Exchange</a></li>
+          <li><a href="#">Community</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 dYdX International Ltd. All rights reserved.</p>
+      <p>dYdX is a decentralized, disintermediated and permissionless protocol, and is not available in the U.S. or to other Restricted Persons. All use of dYdX software is subject to the <a href="#">dYdX Software Terms of Use</a>.</p>
+
+      <p>dYdX International Ltd (“DI”), dYdX Trading Inc. dba dYdX Labs (“dYdX Labs”) and their affiliates do not develop, control or participate in the operation of any component of the dYdX protocol for public use.</p>
+
+      <p>To the extent this content describes anticipated features in the open source dYdX software, the implementation of these features in any live deployment of dYdX software will be decided by the relevant deployer community.</p>
+
+      <p>The information provided herein is for general informational purposes only, and DI reserves the right to update, modify, or amend any contents herein, at its sole discretion and without prior notice...</p>
+
+      <div class="footer-social">
+        <i class="fab fa-discord"></i>
+        <i class="fab fa-telegram"></i>
+        <i class="fab fa-x-twitter"></i>
+        <i class="fab fa-linkedin"></i>
+        <i class="fab fa-youtube"></i>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,487 @@
+/* ========================================= */
+/* === Global Reset === */
+/* ========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ========================================= */
+/* === Navbar === */
+/* ========================================= */
+nav {
+  margin-top: 2vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2vh;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90vw;
+}
+
+.logo {
+  width: 7vw;
+  height: auto;
+  display: block;
+}
+
+.mid-section {
+  display: flex;
+  align-items: center;
+  gap: 5vw;
+  margin-left: 8vw;
+}
+
+.mid-section a {
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+  text-decoration: none;
+  color: gray;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: 400;
+  transition: color 0.3s ease;
+}
+
+.mid-section a:hover {
+  color: black;
+}
+
+.mid-section img {
+  width: 5.5vw;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.mid-section img:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.right-section {
+  display: flex;
+  align-items: center;
+  gap: 3vw;
+}
+
+.host {
+  height: 7vh;
+  width: 10vw;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: 600;
+  background-color: white;
+}
+
+.host:hover {
+  cursor: pointer;
+  background-color: rgb(245, 241, 241);
+}
+
+.globe,
+.menu {
+  height: 7vh;
+  width: 7vh;
+  border-radius: 50%;
+  background-color: rgb(227, 226, 226);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.globe:hover,
+.menu:hover {
+  background-color: rgb(200, 197, 197);
+  cursor: pointer;
+}
+
+.globe img,
+.menu img {
+  width: 3vw;
+  height: auto;
+}
+
+/* ========================================= */
+/* === Search Bar === */
+/* ========================================= */
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  padding: 0.5vh 0.5vw;
+  border-radius: 50px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 60vw;
+}
+
+.search-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.2vh 2vw;
+  border-radius: 40px;
+}
+
+.search-item h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.search-item p {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.divider {
+  height: 3vh;
+  width: 1px;
+  background-color: #ddd;
+}
+
+.search-btn {
+  background-color: #ff385c;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-btn:hover {
+  background-color: #e03052;
+}
+
+.search-item:hover {
+  background-color: #f2f2f2;
+  cursor: pointer;
+}
+
+/* ========================================= */
+/* === Content Sections === */
+/* ========================================= */
+.og,
+.pop,
+.udaipur,
+.jaipur,
+.dubai {
+  margin-top: 15vh;
+  margin-left: 10vh;
+}
+
+.grey {
+  color: grey;
+  margin-bottom: 2vh;
+}
+
+.images {
+  display: flex;
+  width: 90vw;
+  gap: 0.8vw;
+  justify-content: flex-start;
+  margin-top: 2vh;
+}
+
+.images > div {
+  height: 22vh;
+  width: 12vw;
+  border-radius: 15px;
+}
+
+.images img {
+  width: 100%;
+  height: 20vh;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+.text {
+  margin-top: 0.5vh;
+  margin-left: 0.3vh;
+}
+
+.pricing {
+  margin-left: 0.3vh;
+  color: grey;
+  width: 13vw;
+  font-size: small;
+}
+
+/* ========================================= */
+/* === Footer Section === */
+/* ========================================= */
+.inspiration {
+  margin-top: 12vh;
+  margin-left: 13vh;
+}
+
+.links {
+  display: flex;
+  gap: 3vh;
+  font-size: large;
+  margin-top: 2vh;
+}
+
+.links a {
+  text-decoration: none;
+  color: gray;
+}
+
+.border {
+  border: 1px solid black;
+}
+
+.bigbox {
+  display: flex;
+  gap: 4vh;
+}
+
+.box1,
+.box2,
+.box3,
+.two-n,
+.AIRBNB {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+}
+
+.box1 {
+  margin-left: 13vh;
+  margin-bottom: 13vh;
+  gap: 3vh;
+}
+
+.box2 {
+  margin-left: 10vh;
+  margin-bottom: 13vh;
+}
+
+.support {
+  display: flex;
+  gap: 35vh;
+}
+
+.grey:hover {
+  cursor: pointer;
+  color: black;
+}
+
+.black {
+  color: black;
+}
+
+.black:hover {
+  cursor: pointer;
+}
+
+.show:hover {
+  text-decoration: underline;
+}
+
+.s,
+.h {
+  font-weight: 550;
+}
+
+.i:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.copyright {
+  display: flex;
+  gap: 2vh;
+  margin-left: 9vh;
+  margin-bottom: 9vh;
+  flex-wrap: wrap;
+}
+
+.copyright a {
+  color: black;
+  text-decoration: none;
+}
+
+.copyright a:hover {
+  text-decoration: underline;
+}
+
+/* ========================================= */
+/* === Responsive Mobile Styles === */
+/* ========================================= */
+@media (max-width: 1300px) {
+  body {
+    font-size: 16px;
+  }
+
+  nav {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 2vh;
+  }
+
+  /* Hide logo and right section */
+  .nav {
+    justify-content: center;
+  }
+
+  .nav .airbnb,
+  .nav .right-section {
+    display: none;
+  }
+
+  .mid-section {
+    margin-left: 0;
+    gap: 8vw;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .mid-section a span {
+    display: none;
+  }
+
+  .mid-section img {
+    width: 40px;
+    height: 40px;
+    opacity: 0.7;
+  }
+
+  .mid-section img:hover {
+    transform: none;
+    opacity: 1;
+  }
+
+  .search-bar {
+    width: 90vw;
+    padding: 0.5vh 1vw;
+  }
+
+  .search-item:nth-of-type(2),
+  .search-item:nth-of-type(3),
+  .divider {
+    display: none;
+  }
+
+  .search-item {
+    padding: 1vh 3vw;
+  }
+
+  .search-item h4 {
+    font-size: 1rem;
+  }
+
+  .search-item p {
+    font-size: 0.8rem;
+  }
+
+  .search-btn {
+    width: 42px;
+    height: 42px;
+  }
+
+  .og,
+  .pop,
+  .udaipur,
+  .jaipur,
+  .dubai {
+    margin-top: 4vh;
+    margin-left: 0;
+    width: 100%;
+    padding: 0 5vw;
+  }
+
+  main h1 {
+    font-size: 1.8rem;
+    margin-bottom: 2vh;
+  }
+
+  main h2 {
+    font-size: 1.5rem;
+    margin-bottom: 2vh;
+  }
+
+  .h2 {
+    margin-top: 2vh;
+  }
+
+  .grey {
+    font-size: 0.9rem;
+  }
+
+  .images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4vw;
+    width: 100%;
+  }
+
+  .images > div {
+    width: 100%;
+    height: auto;
+  }
+
+  .images img {
+    height: 18vh;
+    border-radius: 10px;
+  }
+
+  .text {
+    font-size: 0.9rem;
+  }
+
+  .pricing {
+    font-size: 0.8rem;
+    width: 100%;
+  }
+
+  .inspiration {
+    margin-left: 5vw;
+    padding-right: 5vw;
+  }
+
+  .links {
+    flex-wrap: wrap;
+    gap: 1.5vh 3vh;
+  }
+
+  .bigbox {
+    flex-direction: column;
+    gap: 1vh;
+  }
+
+  .box1,
+  .box2,
+  .box3,
+  .two-n {
+    margin-left: 5vw;
+    margin-bottom: 3vh;
+  }
+
+  .support {
+    flex-direction: column;
+    gap: 4vh;
+  }
+
+  .copyright {
+    margin-left: 5vw;
+    padding-right: 5vw;
+    gap: 1vh 2vh;
+    flex-wrap: wrap;
+  }
+}

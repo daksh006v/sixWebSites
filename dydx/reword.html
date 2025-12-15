@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dYdX Leaderboard Clone</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Inter", sans-serif;
+    }
+
+    body {
+      background: #0f1724;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    .card {
+      background: #0b1220;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+
+    .top-card {
+      grid-column: 1 / span 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #0b1220;
+    }
+
+    .surge-info {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .surge-info h3 {
+      color: #66c0f4;
+      font-size: 16px;
+    }
+
+    .surge-info p {
+      color: #93a3b8;
+      font-size: 14px;
+    }
+
+    .countdown {
+      color: #66c0f4;
+      font-weight: bold;
+    }
+
+    .leaderboard h2 {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      color: #cbd5e1;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #1e293b;
+    }
+
+    th {
+      color: #94a3b8;
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    td {
+      font-size: 14px;
+    }
+
+    tr:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .rank {
+      color: #66c0f4;
+      font-weight: bold;
+    }
+    .dydx-card h3 {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    .balance {
+      background: #0f1724;
+      border-radius: 8px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    .balance p {
+      font-size: 14px;
+      color: #93a3b8;
+    }
+
+    .balance span {
+      display: block;
+      font-weight: bold;
+      color: #fff;
+      margin-top: 4px;
+    }
+    .help h3 {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    .faq-item {
+      background: #0f1724;
+      border-radius: 8px;
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .faq-item:hover {
+      background: #1e293b;
+    }
+
+    .faq-item p {
+      font-size: 14px;
+      color: #93a3b8;
+    }
+    @media (max-width: 900px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card top-card">
+      <div class="surge-info">
+        <h3>Surge: $1M in rewards + 100% fee rebate</h3>
+        <p>Up to $1M in rewards and a 100% fee rebate are distributed to dYdX traders at the end of every month.</p>
+        <p class="countdown">⏱ Countdown: 0:14:36</p>
+      </div>
+    </div>
+
+    <div class="card leaderboard">
+      <h2>Leaderboard</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Trader</th>
+            <th>Estimated Rewards</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="rank">1</td>
+            <td>dydx1z36...apcn</td>
+            <td>71,191 DYDX</td>
+          </tr>
+          <tr>
+            <td class="rank">2</td>
+            <td>dydx1pyv...vz74</td>
+            <td>56,609 DYDX</td>
+          </tr>
+          <tr>
+            <td class="rank">3</td>
+            <td>dydx137k...6lwz</td>
+            <td>52,932 DYDX</td>
+          </tr>
+          <tr>
+            <td class="rank">4</td>
+            <td>dydx15cz...7vww</td>
+            <td>52,277 DYDX</td>
+          </tr>
+          <tr>
+            <td class="rank">5</td>
+            <td>dydx1gex...6hgr</td>
+            <td>51,375 DYDX</td>
+          </tr>
+          <tr>
+            <td class="rank">6</td>
+            <td>dydx1lu44...dup9</td>
+            <td>46,595 DYDX</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card dydx-card">
+      <h3>DYDX</h3>
+      <div class="balance">
+        <p>Unstaked</p>
+        <span>0.0000</span>
+      </div>
+      <div class="balance">
+        <p>Staked (Est. 9.30% APR)</p>
+        <span>0.0000</span>
+      </div>
+      <div class="balance">
+        <p>Total Balance</p>
+        <span>0.0000 DYDX</span>
+      </div>
+    </div>
+
+    <div class="card help">
+      <h3>Help</h3>
+      <div class="faq-item"><p>Who is eligible for Surge rewards?</p></div>
+      <div class="faq-item"><p>How do Surge rewards work?</p></div>
+      <div class="faq-item"><p>How do I claim my trading rewards?</p></div>
+      <div class="faq-item"><p>What is staking?</p></div>
+      <div class="faq-item"><p>How do I stake and claim staking rewards?</p></div>
+      <div class="faq-item"><p>What are the risks of staking?</p></div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dYdX Clone Layout</title>
+    <style>
+      
+:root {
+    --bg-dark: #0d0d10; 
+    --bg-medium: #1c1c24; 
+    --text-light: #f5f5f5; 
+    --text-secondary: #999; 
+    --accent-purple: #7b4bf7; 
+    --accent-red: #ff4d4f; 
+    --accent-green: #2ecc71; 
+    --border-color: #333; 
+}
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    margin: 0;
+    padding: 0;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: var(--bg-medium);
+    border-bottom: 1px solid var(--border-color);
+}
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--text-light);
+}
+.nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    margin: 0 15px;
+    padding: 5px 0;
+    font-weight: 500;
+}
+.nav-links .active {
+    color: var(--text-light);
+    border-bottom: 2px solid var(--accent-purple); 
+}
+.sign-in-btn {
+  display: inline-block;
+  text-decoration: none;
+  background-color: var(--accent-purple);
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.sign-in-btn:hover {
+  background-color: #6a3de8;
+}
+
+.hero-banner {
+    background-image: url('placeholder-bull-bats.png'); 
+    background-color: #0b0b14; 
+    background-size: cover;
+    background-position: right center;
+    padding: 50px 40px;
+    margin-bottom: 20px;
+    position: relative;
+    border-radius: 10px;
+    margin: 20px 40px 0;
+}
+.hero-content h1 {
+    font-size: 36px;
+    max-width: 60%;
+    margin: 0 0 20px 0;
+}
+.get-started-btn {
+    background-color: var(--accent-purple);
+    color: var(--text-light);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+.main-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr; 
+    gap: 20px;
+    padding: 20px 40px;
+}
+.metrics-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.metric-card {
+    background-color: var(--bg-medium);
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.metric-card .label {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.metric-card .value {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.time-24h, .time-current {
+    font-size: 10px;
+    background-color: #555;
+    padding: 2px 5px;
+    border-radius: 3px;
+    margin-left: 5px;
+    color: var(--text-light);
+}
+
+.earned-by-stakers .learn-more {
+    color: var(--accent-purple);
+    text-decoration: none;
+    margin-top: 10px;
+    font-size: 14px;
+}
+.side-content-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.recently-listed-card {
+    background-color: var(--bg-medium);
+    padding: 20px;
+    border-radius: 8px;
+}
+.recently-listed-card h2 {
+    font-size: 18px;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+}
+
+.new-badge {
+    background-color: var(--accent-purple);
+    color: var(--text-light);
+    font-size: 10px;
+    padding: 2px 5px;
+    border-radius: 3px;
+    margin-left: 8px;
+    font-weight: normal;
+}
+
+.listed-items {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+}
+
+.listed-items li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.listed-items li:last-child {
+    border-bottom: none;
+}
+
+.price-change {
+    font-weight: bold;
+    margin-left: auto;
+    padding-right: 15px;
+}
+
+.price-change.up {
+    color: var(--accent-green);
+}
+
+.price-change.down {
+    color: var(--accent-red);
+}
+
+.change-percent {
+    font-size: 12px;
+    font-weight: normal;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 2px 5px;
+    border-radius: 3px;
+    margin-left: 5px;
+}
+
+.new-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 14px;
+}
+.deposit-box {
+    background-image: url('placeholder-hedgehog.png');
+    background-color: #2a144e;
+    background-size: cover;
+    background-position: right bottom;
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+.deposit-content img{
+    height: 300px;
+    width: 450px;
+}
+
+.free-deposit-btn {
+    background-color: var(--text-light);
+    color: var(--bg-dark);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.deposit-box p {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.markets-section {
+    padding: 20px 40px;
+}
+
+.market-controls {
+    margin-bottom: 20px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--bg-medium);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    color: var(--text-light);
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.filter-tabs {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    background-color: var(--bg-medium);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.tab-btn.active {
+    background-color: var(--accent-purple);
+    color: var(--text-light);
+    border-color: var(--accent-purple);
+}
+.market-table-container {
+    overflow-x: auto; 
+}
+
+.market-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 1000px; 
+}
+
+.market-table th, .market-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    white-space: nowrap; 
+}
+.market-table th {
+    color: var(--text-secondary);
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: normal;
+}
+
+.market-table td {
+    font-size: 14px;
+}
+
+.market-name {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+
+.market-name .icon {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.market-name .badge {
+    background-color: var(--border-color);
+    color: var(--text-light);
+    font-size: 10px;
+    padding: 2px 5px;
+    border-radius: 3px;
+    margin-left: 5px;
+    font-weight: normal;
+}
+
+.change-down {
+    color: var(--accent-red);
+}
+
+.change-up {
+    color: var(--accent-green);
+}
+
+.funding-rate {
+    font-weight: bold;
+}
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.page-controls {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.page-controls button, .page-controls .page-number {
+    background-color: var(--bg-medium);
+    color: var(--text-light);
+    border: 1px solid var(--border-color);
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.page-controls .page-number.active {
+    background-color: var(--accent-purple);
+    border-color: var(--accent-purple);
+}
+.footer-note {
+    padding: 10px 40px;
+    background-color: var(--bg-medium);
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-note p {
+    color: var(--text-secondary);
+    font-size: 12px;
+    text-align: center;
+}
+
+.footer-note a {
+    color: var(--text-secondary);
+}
+    </style>
+    </head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">dYdX</div>
+        <nav class="nav-links">
+            <a href="#">Mainnet</a>
+            <a href="#">Trade</a>
+            <a href="#" class="active">Markets</a>
+            <a href="#">Portfolio</a>
+            <a href="#">MegaVault</a>
+            <a href="reword.html">DYDX</a>
+            <a href="#">More ⌄</a>
+        </nav>
+        <a href="signin.html" class="sign-in-btn">Sign In</a>
+
+    </header>
+
+    <section class="hero-banner">
+        <div class="hero-content">
+            <h1>The 2025 World Series, Now Tradable on dYdX!</h1>
+            <button class="get-started-btn">Get started</button>
+        </div>
+        </section>
+
+    <main class="main-container">
+
+        <div class="metrics-column">
+            <div class="metric-card">
+                <span class="label">Trading Volume <span class="time-24h">24h</span></span>
+                <span class="value">$290,530,444</span>
+            </div>
+            <div class="metric-card current-open-interest">
+                <span class="label">Open Interest <span class="time-current">Current</span></span>
+                <span class="value">$112,495,046</span>
+            </div>
+            <div class="metric-card earned-by-stakers">
+                <span class="label">Earned by Stakers <span class="time-24h">24h</span></span>
+                <span class="value">$23,242.44</span>
+                <a href="#" class="learn-more">Learn more →</a>
+            </div>
+        </div>
+
+        <div class="side-content-column">
+            <div class="recently-listed-card">
+                <h2>Recently Listed <span class="new-badge">NEW</span></h2>
+                <ul class="listed-items">
+                    <li>
+                        <span class="item-name">🐶 Dodge...</span>
+                        <span class="price-change up">$0.315 <span class="change-percent">5x</span></span>
+                        <a href="#" class="new-link">NEW ↗</a>
+                    </li>
+                    <li>
+                        <span class="item-name">🦇 Double...</span>
+                        <span class="price-change down">$0.1910 <span class="change-percent">5x</span></span>
+                        <a href="#" class="new-link">NEW ↗</a>
+                    </li>
+                    <li>
+                        <span class="item-name">🌱 Avantis</span>
+                        <span class="price-change up">$0.65490 <span class="change-percent">5x</span></span>
+                        <a href="#" class="new-link">NEW ↗</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="deposit-box">
+                <div class="deposit-content">
+                   <img src="https://image2url.com/images/1761901972475-685b80d5-0af2-466f-99a9-519f855de062.png" alt="">
+                </div>
+                </div>
+        </div>
+    </main>
+
+    <section class="markets-section">
+        <div class="market-controls">
+            <input type="text" placeholder="🔍 Search markets" class="search-input">
+
+            <div class="filter-tabs">
+                <button class="tab-btn active">All</button>
+                <button class="tab-btn">Recently Listed</button>
+                <button class="tab-btn">Launchable <span class="new-badge">NEW</span></button>
+                </div>
+        </div>
+
+        <div class="market-table-container">
+            <table class="market-table">
+                <thead>
+                    <tr>
+                        <th>Market</th>
+                        <th>Oracle Price</th>
+                        <th>Last 24H</th>
+                        <th>24H Change</th>
+                        <th>24H Volume</th>
+                        <th>24H Spot Volume</th>
+                        <th>Market Cap</th>
+                        <th>Trades</th>
+                        <th>Open Interest</th>
+                        <th>1H Funding</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="market-name">
+                            <span class="icon">₿</span> **Bitcoin** <span class="badge">50x</span>
+                        </td>
+                        <td>$109,755</td>
+                        <td class="change-down">1.38%</td>
+                        <td>$153M</td>
+                        <td>$66.3B</td>
+                        <td>$2.19T</td>
+                        <td>24.2K</td>
+                        <td>$41.8M</td>
+                        <td class="funding-rate up">0.00180%</td>
+                    </tr>
+                    <tr>
+                        <td class="market-name">
+                            <span class="icon">Ξ</span> **Ethereum** <span class="badge">50x</span>
+                        </td>
+                        <td>$3,840.2</td>
+                        <td class="change-up">2.43%</td>
+                        <td>$99.8M</td>
+                        <td>$38.7B</td>
+                        <td>$4.63B</td>
+                        <td>17.6K</td>
+                        <td>$40.6M</td>
+                        <td class="funding-rate up">0.00257%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="pagination">
+            <p>Showing 1 - 50 out of 826</p>
+            <div class="page-controls">
+                <button>&lt;</button>
+                <span class="page-number active">1</span>
+                <span class="page-number">2</span>
+                <span class="page-number">3</span>
+                <span>...</span>
+                <button>&gt;</button>
+            </div>
+            <select><option>Show 50</option></select>
+        </div>
+
+    </section>
+
+    <footer class="footer-note">
+        <p>Help & Support | This site is operated by dYdX Ops subDAO, utilizing software open sourced by dYdX Trading Inc. <a href="#">Learn more</a></p>
+    </footer>
+
+</body>
+</html>
