@@ -1,6 +1,4 @@
 # sixWebSites
-diwali assignment
-
 forme website clone netlify link: https://forme123.netlify.app/
 
 pepsi website clone netlify link: https://pepsiclone123.netlify.app/
