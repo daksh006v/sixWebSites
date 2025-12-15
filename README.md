@@ -3,12 +3,12 @@ diwali assignment
 
 forme website clone netlify link: https://forme123.netlify.app/
 
-website clone netlify link:
+pepsi website clone netlify link: https://pepsiclone123.netlify.app/
 
-website clone netlify link:
+loftOrbital website clone netlify link: https://loftorbital123.netlify.app/
 
-website clone netlify link:
+xrp ledger website clone netlify link: https://xrpledger123.netlify.app/
 
-website clone netlify link:
+dydx website clone netlify link: https://dydx123.netlify.app/
 
-website clone netlify link:
+airBnb website clone netlify link: https://bright-salamander-ca9508.netlify.app/
