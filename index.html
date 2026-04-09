@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web Clones — Portfolio</title>
+  <meta name="description" content="A curated collection of pixel-perfect HTML & CSS clones of popular websites, built as a frontend design portfolio." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #080b14;
+      --bg-2: #0d1120;
+      --surface: rgba(255,255,255,0.04);
+      --surface-hover: rgba(255,255,255,0.08);
+      --border: rgba(255,255,255,0.08);
+      --border-hover: rgba(255,255,255,0.18);
+      --text-primary: #f0f4ff;
+      --text-secondary: #8892a4;
+      --text-muted: #4a5568;
+
+      --airbnb: #FF5A5F;
+      --forme: #a78bfa;
+      --dydx: #6366f1;
+      --loft: #22d3ee;
+      --pepsi: #3b82f6;
+      --xrp: #00b4d8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── Noise texture overlay ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.6;
+    }
+
+    /* ── Ambient blobs ── */
+    .blob {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+      animation: drift 18s ease-in-out infinite alternate;
+    }
+    .blob-1 {
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(99,102,241,0.18) 0%, transparent 70%);
+      top: -200px; left: -150px;
+      animation-duration: 20s;
+    }
+    .blob-2 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(255,90,95,0.12) 0%, transparent 70%);
+      bottom: -100px; right: -100px;
+      animation-duration: 25s;
+      animation-direction: alternate-reverse;
+    }
+    .blob-3 {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(34,211,238,0.10) 0%, transparent 70%);
+      top: 40%; left: 50%;
+      animation-duration: 22s;
+    }
+    @keyframes drift {
+      0%   { transform: translate(0, 0) scale(1); }
+      50%  { transform: translate(40px, -30px) scale(1.05); }
+      100% { transform: translate(-20px, 20px) scale(0.97); }
+    }
+
+    /* ── Layout wrapper ── */
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 1rem 0;
+      backdrop-filter: blur(20px);
+      background: rgba(8,11,20,0.8);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .nav-left {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #f0f4ff 0%, #a5b4fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+    }
+    .nav-sub {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      letter-spacing: 0.02em;
+    }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .nav-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #818cf8;
+      background: rgba(99,102,241,0.1);
+      border: 1px solid rgba(99,102,241,0.2);
+      padding: 0.3rem 0.75rem;
+      border-radius: 100px;
+    }
+    .nav-pill::before {
+      content: '';
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: #818cf8;
+      animation: pulse 2s ease infinite;
+    }
+    .nav-badge {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: var(--surface);
+      padding: 0.3rem 0.7rem;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Main padding ── */
+    main {
+      padding-top: 1.5rem;
+    }
+
+    /* ── Grid ── */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.5rem;
+      padding-bottom: 6rem;
+    }
+
+    /* ── Card ── */
+    .card {
+      position: relative;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      backdrop-filter: blur(12px);
+      overflow: hidden;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      transition:
+        transform 0.35s cubic-bezier(0.34,1.56,0.64,1),
+        border-color 0.3s,
+        box-shadow 0.35s;
+      animation: fadeUp 0.6s ease both;
+    }
+    .card:nth-child(1) { animation-delay: 0.05s; }
+    .card:nth-child(2) { animation-delay: 0.10s; }
+    .card:nth-child(3) { animation-delay: 0.15s; }
+    .card:nth-child(4) { animation-delay: 0.20s; }
+    .card:nth-child(5) { animation-delay: 0.25s; }
+    .card:nth-child(6) { animation-delay: 0.30s; }
+
+    .card:hover {
+      transform: translateY(-8px) scale(1.01);
+      border-color: var(--card-accent);
+      box-shadow:
+        0 20px 60px rgba(0,0,0,0.4),
+        0 0 0 1px var(--card-accent),
+        0 0 40px -10px var(--card-accent);
+    }
+
+    /* glow overlay on hover */
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 0%, var(--card-accent) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.4s;
+      pointer-events: none;
+    }
+    .card:hover::before { opacity: 0.08; }
+
+    /* top accent bar */
+    .card-accent-bar {
+      height: 3px;
+      background: linear-gradient(90deg, var(--card-accent), transparent);
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .card:hover .card-accent-bar { transform: scaleX(1); }
+
+    /* card preview area */
+    .card-preview {
+      height: 130px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .card-preview-bg {
+      position: absolute;
+      inset: 0;
+      background: var(--card-preview-bg);
+      transition: transform 0.4s ease;
+    }
+    .card:hover .card-preview-bg { transform: scale(1.04); }
+
+    /* brand logo inside preview */
+    .brand-logo {
+      position: relative;
+      z-index: 1;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--card-accent);
+      letter-spacing: -0.04em;
+      text-shadow: 0 0 40px var(--card-accent);
+      transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .card:hover .brand-logo { transform: scale(1.12); }
+
+    .brand-icon {
+      position: relative;
+      z-index: 1;
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      backdrop-filter: blur(8px);
+      transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s;
+    }
+    .card:hover .brand-icon {
+      transform: scale(1.12) rotate(-4deg);
+      box-shadow: 0 8px 30px var(--card-accent);
+    }
+
+    /* floating dots in preview */
+    .preview-dots {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .preview-dots span {
+      position: absolute;
+      border-radius: 50%;
+      background: var(--card-accent);
+      opacity: 0.08;
+    }
+
+    /* card body */
+    .card-body {
+      padding: 1.5rem 1.5rem 1.6rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .card-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+    }
+    .card-tag {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--card-accent);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 0.25rem 0.6rem;
+      border-radius: 100px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .card-desc {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 0.8rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+    .card-pages {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+    .card-pages svg {
+      width: 13px; height: 13px;
+    }
+    .card-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--card-accent);
+      transition: gap 0.2s;
+    }
+    .card:hover .card-cta { gap: 0.7rem; }
+    .card-cta svg {
+      width: 14px; height: 14px;
+      transition: transform 0.2s;
+    }
+    .card:hover .card-cta svg { transform: translateX(3px); }
+
+    /* ── Footer ── */
+    footer {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      text-align: center;
+    }
+    .footer-text {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+    .footer-text span {
+      color: var(--text-secondary);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .nav-pill { display: none; }
+      .cards-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient blobs -->
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <!-- Nav -->
+  <nav>
+    <div class="wrapper nav-inner">
+      <div class="nav-left">
+        <span class="nav-logo">⬡ WebClones</span>
+        <span class="nav-sub">6 pixel-perfect HTML &amp; CSS replicas</span>
+      </div>
+      <div class="nav-right">
+        <span class="nav-pill">Pure HTML &amp; CSS</span>
+        <span class="nav-badge">Portfolio</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Cards -->
+  <main>
+    <div class="wrapper">
+      <div class="cards-grid">
+
+        <!-- AirBnb -->
+        <a href="https://bright-salamander-ca9508.netlify.app/" target="_blank" rel="noopener noreferrer" id="card-airbnb" class="card" style="--card-accent: #FF5A5F; --card-preview-bg: linear-gradient(135deg, #1a0809 0%, #2d1010 100%);">
+          <div class="card-accent-bar"></div>
+          <div class="card-preview">
+            <div class="card-preview-bg"></div>
+            <div class="preview-dots">
+              <span style="width:180px;height:180px;top:-60px;right:-40px;"></span>
+              <span style="width:80px;height:80px;bottom:10px;left:20px;"></span>
+            </div>
+            <div class="brand-logo">Airbnb</div>
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <span class="card-name">AirBnb</span>
+              <span class="card-tag">Accommodation</span>
+            </div>
+            <p class="card-desc">Clone of the iconic travel & accommodation marketplace with multi-page layout including home, experience, and services.</p>
+            <div class="card-footer">
+              <span class="card-pages">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                3 pages
+              </span>
+              <span class="card-cta">
+                Visit Clone
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Forme -->
+        <a href="https://forme123.netlify.app/" target="_blank" rel="noopener noreferrer" id="card-forme" class="card" style="--card-accent: #a78bfa; --card-preview-bg: linear-gradient(135deg, #0f0b1a 0%, #1a1028 100%);">
+          <div class="card-accent-bar"></div>
+          <div class="card-preview">
+            <div class="card-preview-bg"></div>
+            <div class="preview-dots">
+              <span style="width:160px;height:160px;bottom:-40px;left:-30px;"></span>
+              <span style="width:60px;height:60px;top:20px;right:30px;"></span>
+            </div>
+            <div class="brand-icon">💜</div>
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <span class="card-name">Forme</span>
+              <span class="card-tag">Wellness</span>
+            </div>
+            <p class="card-desc">Elegant wellness & fitness brand clone featuring smooth layouts across three distinct pages with minimal, clean styling.</p>
+            <div class="card-footer">
+              <span class="card-pages">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                3 pages
+              </span>
+              <span class="card-cta">
+                Visit Clone
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <!-- dydx -->
+        <a href="https://dydx123.netlify.app/" target="_blank" rel="noopener noreferrer" id="card-dydx" class="card" style="--card-accent: #818cf8; --card-preview-bg: linear-gradient(135deg, #080c1a 0%, #0f1230 100%);">
+          <div class="card-accent-bar"></div>
+          <div class="card-preview">
+            <div class="card-preview-bg"></div>
+            <div class="preview-dots">
+              <span style="width:200px;height:200px;top:-80px;left:-60px;"></span>
+              <span style="width:70px;height:70px;bottom:15px;right:25px;"></span>
+            </div>
+            <div class="brand-logo" style="font-size:2.4rem;">dYdX</div>
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <span class="card-name">dYdX</span>
+              <span class="card-tag">DeFi / Crypto</span>
+            </div>
+            <p class="card-desc">Decentralized perpetual trading platform clone with sign-in, sign-up, get-started, and rewards flows fully recreated.</p>
+            <div class="card-footer">
+              <span class="card-pages">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                5 pages
+              </span>
+              <span class="card-cta">
+                Visit Clone
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Loft Orbital -->
+        <a href="https://loftorbital123.netlify.app/" target="_blank" rel="noopener noreferrer" id="card-loft" class="card" style="--card-accent: #22d3ee; --card-preview-bg: linear-gradient(135deg, #020d14 0%, #051a24 100%);">
+          <div class="card-accent-bar"></div>
+          <div class="card-preview">
+            <div class="card-preview-bg"></div>
+            <div class="preview-dots">
+              <span style="width:170px;height:170px;top:-50px;right:-30px;"></span>
+              <span style="width:90px;height:90px;bottom:-20px;left:40px;"></span>
+            </div>
+            <div class="brand-icon">🛰️</div>
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <span class="card-name">Loft Orbital</span>
+              <span class="card-tag">Space Tech</span>
+            </div>
+            <p class="card-desc">Space technology company clone replicating the futuristic UI of a satellite-as-a-service platform with 3 pages.</p>
+            <div class="card-footer">
+              <span class="card-pages">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                3 pages
+              </span>
+              <span class="card-cta">
+                Visit Clone
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Pepsi -->
+        <a href="https://pepsiclone123.netlify.app/" target="_blank" rel="noopener noreferrer" id="card-pepsi" class="card" style="--card-accent: #3b82f6; --card-preview-bg: linear-gradient(135deg, #030a1a 0%, #06143a 100%);">
+          <div class="card-accent-bar"></div>
+          <div class="card-preview">
+            <div class="card-preview-bg"></div>
+            <div class="preview-dots">
+              <span style="width:220px;height:220px;top:-90px;left:-70px;"></span>
+              <span style="width:80px;height:80px;bottom:10px;right:20px;"></span>
+            </div>
+            <div class="brand-icon">🥤</div>
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <span class="card-name">Pepsi</span>
+              <span class="card-tag">FMCG / Brand</span>
+            </div>
+            <p class="card-desc">Bold recreation of Pepsi's consumer website with vibrant brand aesthetics, login, and registration page flows.</p>
+            <div class="card-footer">
+              <span class="card-pages">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                3 pages
+              </span>
+              <span class="card-cta">
+                Visit Clone
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <!-- XRP Ledger -->
+        <a href="https://xrpledger123.netlify.app/" target="_blank" rel="noopener noreferrer" id="card-xrp" class="card" style="--card-accent: #00b4d8; --card-preview-bg: linear-gradient(135deg, #020f16 0%, #041e2d 100%);">
+          <div class="card-accent-bar"></div>
+          <div class="card-preview">
+            <div class="card-preview-bg"></div>
+            <div class="preview-dots">
+              <span style="width:150px;height:150px;bottom:-30px;right:-20px;"></span>
+              <span style="width:100px;height:100px;top:10px;left:30px;"></span>
+            </div>
+            <div class="brand-logo" style="font-size:2rem;">XRP</div>
+          </div>
+          <div class="card-body">
+            <div class="card-header">
+              <span class="card-name">XRP Ledger</span>
+              <span class="card-tag">Blockchain</span>
+            </div>
+            <p class="card-desc">Blockchain developer portal clone for the XRP Ledger with community, login, and the main hub pages faithfully reconstructed.</p>
+            <div class="card-footer">
+              <span class="card-pages">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                3 pages
+              </span>
+              <span class="card-cta">
+                Visit Clone
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="wrapper">
+      <p class="footer-text">Built with <span>HTML &amp; CSS</span> · 6 website clones · Frontend Portfolio</p>
+    </div>
+  </footer>
+
+</body>
+</html>
