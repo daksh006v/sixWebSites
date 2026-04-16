@@ -12,14 +12,14 @@ A curated frontend portfolio consisting of **6 pixel-perfect HTML & CSS replicas
 
 Each website in this collection has been independently developed and deployed. Click the links below to view the live demonstrations.
 
-| Project | Industry / Niche | Live Link |
-| :--- | :--- | :--- |
-| **AirBnb** | Travel & Accommodation | [Live Demo ↗](https://bright-salamander-ca9508.netlify.app/) |
-| **Forme** | Wellness & Fitness | [Live Demo ↗](https://forme123.netlify.app/) |
-| **dYdX** | DeFi & Crypto Trading | [Live Demo ↗](https://dydx123.netlify.app/) |
-| **Loft Orbital** | Space Technology | [Live Demo ↗](https://loftorbital123.netlify.app/) |
-| **Pepsi** | FMCG & Brand | [Live Demo ↗](https://pepsiclone123.netlify.app/) |
-| **XRP Ledger** | Blockchain Hub | [Live Demo ↗](https://xrpledger123.netlify.app/) |
+| Preview | Project & Niche | Live Link |
+| :---: | :--- | :--- |
+| <a href="https://bright-salamander-ca9508.netlify.app/"><img src="./assets/airbnb.png" width="250" alt="Airbnb Clone"></a> | **AirBnb**<br>Travel & Accommodation | [Live Demo ↗](https://bright-salamander-ca9508.netlify.app/) |
+| <a href="https://forme123.netlify.app/"><img src="./assets/forme.png" width="250" alt="Forme Clone"></a> | **Forme**<br>Wellness & Fitness | [Live Demo ↗](https://forme123.netlify.app/) |
+| <a href="https://dydx123.netlify.app/"><img src="./assets/dydx.png" width="250" alt="dYdX Clone"></a> | **dYdX**<br>DeFi & Crypto Trading | [Live Demo ↗](https://dydx123.netlify.app/) |
+| <a href="https://loftorbital123.netlify.app/"><img src="./assets/loft.png" width="250" alt="Loft Orbital Clone"></a> | **Loft Orbital**<br>Space Technology | [Live Demo ↗](https://loftorbital123.netlify.app/) |
+| <a href="https://pepsiclone123.netlify.app/"><img src="./assets/pepsi.png" width="250" alt="Pepsi Clone"></a> | **Pepsi**<br>FMCG & Brand | [Live Demo ↗](https://pepsiclone123.netlify.app/) |
+| <a href="https://xrpledger123.netlify.app/"><img src="./assets/xrp.png" width="250" alt="XRP Ledger Clone"></a> | **XRP Ledger**<br>Blockchain Hub | [Live Demo ↗](https://xrpledger123.netlify.app/) |
 
 ## 🚀 Overview
 
